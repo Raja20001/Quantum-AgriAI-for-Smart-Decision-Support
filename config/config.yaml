@@ -1,0 +1,99 @@
+dataset:
+  crop_dataset:  "datasets/crop_recommendation_dataset.csv"
+  india_dataset: "datasets/india_agriculture_dataset.csv"
+  test_size: 0.20
+  random_state: 42
+  samples_per_crop: 300
+
+features:
+  base_columns:
+    - Nitrogen
+    - Phosphorus
+    - Potassium
+    - Temperature
+    - Humidity
+    - pH_Value
+    - Rainfall
+  target_column: Crop
+
+models:
+  extra_trees:
+    n_estimators: 150
+    max_depth: null
+    min_samples_leaf: 1
+    random_state: 42
+
+  catboost:
+    iterations: 200
+    depth: 8
+    learning_rate: 0.05
+    random_seed: 42
+
+  xgboost:
+    n_estimators: 150
+    max_depth: 7
+    learning_rate: 0.08
+    subsample: 0.85
+    colsample_bytree: 0.85
+    random_state: 42
+
+  lightgbm:
+    n_estimators: 150
+    num_leaves: 63
+    learning_rate: 0.08
+    min_child_samples: 3
+    subsample: 0.85
+    colsample_bytree: 0.85
+    random_state: 42
+
+  random_forest:
+    n_estimators: 150
+    max_depth: null
+    random_state: 42
+
+  gradient_boosting:
+    n_estimators: 200
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+    random_state: 42
+
+  svm:
+    kernel: rbf
+    C: 10
+    gamma: scale
+
+  naive_bayes: {}
+  knn:
+    n_neighbors: 7
+
+  vqc:
+    n_qubits: 4
+    reps: 2
+    max_iter: 100
+
+  qaoa:
+    n_qubits: 4
+    p_layers: 2
+    max_iter: 80
+    n_classes_subset: 5
+
+  quantum_kernel_svm:
+    n_qubits: 4
+    feature_map_reps: 2
+
+recommendation:
+  high_yield_threshold: 2000
+  market_price_threshold: 3000
+
+market:
+  moving_average_window: 7
+  price_alert_threshold: 5000
+
+output:
+  charts_dir:  "outputs/charts"
+  models_dir:  "saved_models"
+
+logging:
+  level: INFO
+  file:  "logs/agri_system.log"

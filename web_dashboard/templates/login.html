@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block title %}Login — Quantum AgriAI{% endblock %}
+{% block extra_css %}
+<style>
+.login-page{
+  min-height:80vh;display:flex;align-items:center;justify-content:center;
+  padding:40px 16px;position:relative;
+}
+.login-bg{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 60% at 15% 50%,rgba(22,163,74,.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 40%,rgba(29,78,216,.08) 0%,transparent 60%);
+}
+.login-card{
+  width:100%;max-width:440px;
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:20px;padding:36px 32px;
+  position:relative;z-index:1;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.login-logo{
+  text-align:center;margin-bottom:28px;
+}
+.login-logo-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:linear-gradient(135deg,#16a34a,#0d9488,#1d4ed8);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:26px;margin-bottom:12px;
+  box-shadow:0 0 24px rgba(22,163,74,.4);
+}
+.login-logo-title{
+  font-family:var(--font-display);font-size:1.5rem;
+  font-weight:800;color:#fff;margin-bottom:4px;
+}
+.login-logo-sub{font-size:.78rem;color:var(--muted)}
+.tab-row{
+  display:flex;background:var(--bg3);
+  border-radius:10px;padding:3px;
+  margin-bottom:24px;gap:3px;
+}
+.tab-btn{
+  flex:1;padding:9px;border-radius:7px;
+  border:none;cursor:pointer;
+  font-family:var(--font-body);font-size:.85rem;font-weight:600;
+  transition:all .2s;
+}
+.tab-btn.active{background:var(--bg2);color:var(--greenlt);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.tab-btn:not(.active){background:transparent;color:var(--muted)}
+.tab-btn:not(.active):hover{color:var(--text)}
+.form-panel{display:none}
+.form-panel.active{display:block}
+.input-icon-wrap{position:relative}
+.input-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:1rem;pointer-events:none}
+.input-icon-wrap input{padding-left:38px}
+.divider-text{
+  display:flex;align-items:center;gap:12px;
+  margin:20px 0;font-size:.75rem;color:var(--dim);
+}
+.divider-text::before,.divider-text::after{content:'';flex:1;height:1px;background:var(--border)}
+.benefits-row{
+  display:flex;gap:8px;justify-content:center;
+  flex-wrap:wrap;margin-top:20px;
+}
+.benefit-chip{
+  font-size:.7rem;color:var(--muted);
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:20px;padding:3px 10px;
+}
+</style>
+{% endblock %}
+{% block content %}
+<div class="login-bg"></div>
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-icon">🌾</div>
+      <div class="login-logo-title">Quantum AgriAI</div>
+      <div class="login-logo-sub">⚛ Hybrid Quantum-Classical Intelligence · 98.7% Accuracy</div>
+    </div>
+
+    <div class="tab-row">
+      <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">Login</button>
+      <button class="tab-btn" id="tab-signup" onclick="switchTab('signup')">Sign Up</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div class="form-panel active" id="panel-login">
+      <form method="POST" action="{{ url_for('login') }}">
+        <input type="hidden" name="action" value="login">
+        <div class="form-group">
+          <label>Email Address</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">📧</span>
+            <input type="email" name="email" placeholder="farmer@example.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">🔒</span>
+            <input type="password" name="password" placeholder="Your password" required autocomplete="current-password">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top:8px">
+          🌾 Login to Quantum AgriAI
+        </button>
+      </form>
+      <div class="divider-text">or</div>
+      <p style="text-align:center;font-size:.82rem;color:var(--muted)">
+        Don't have an account?
+        <a href="#" onclick="switchTab('signup')" style="color:var(--greenlt);text-decoration:none;font-weight:600">Sign up free →</a>
+      </p>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div class="form-panel" id="panel-signup">
+      <form method="POST" action="{{ url_for('login') }}">
+        <input type="hidden" name="action" value="signup">
+        <div class="form-group">
+          <label>Full Name</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">👤</span>
+            <input type="text" name="name" placeholder="Ramesh Kumar" required autocomplete="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">📧</span>
+            <input type="email" name="email" placeholder="farmer@example.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Create Password</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">🔒</span>
+            <input type="password" name="password" placeholder="Min. 6 characters" required autocomplete="new-password">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top:8px">
+          🚀 Create Free Account
+        </button>
+      </form>
+      <div class="divider-text">Free forever</div>
+      <div class="benefits-row">
+        <span class="benefit-chip">✅ No credit card</span>
+        <span class="benefit-chip">⚛ Quantum AI</span>
+        <span class="benefit-chip">🌾 27 Crops</span>
+        <span class="benefit-chip">🇮🇳 All India</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+function switchTab(tab){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+// Auto-switch to signup if URL has #signup
+if(location.hash==='#signup') switchTab('signup');
+</script>
+{% endblock %}

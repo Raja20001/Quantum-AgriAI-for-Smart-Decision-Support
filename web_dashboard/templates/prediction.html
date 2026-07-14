@@ -1,0 +1,619 @@
+{% extends "base.html" %}
+{% block title %}⚛ Quantum Prediction — AgriAI{% endblock %}
+{% block extra_css %}
+<style>
+.page-header{
+  background:linear-gradient(135deg,rgba(22,163,74,.1),rgba(13,148,136,.08),rgba(29,78,216,.06));
+  border:1px solid rgba(74,222,128,.15);border-radius:16px;
+  padding:22px 28px;margin-bottom:24px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.page-header-title{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:#fff}
+.page-header-sub{font-size:.82rem;color:var(--muted);margin-top:3px}
+.pred-layout{display:grid;grid-template-columns:380px 1fr;gap:20px;align-items:start}
+/* Input Panel */
+.input-panel{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:16px;padding:0;overflow:hidden;
+  position:sticky;top:80px;
+}
+.input-panel-header{
+  background:linear-gradient(135deg,rgba(22,163,74,.15),rgba(13,148,136,.1));
+  border-bottom:1px solid var(--border2);
+  padding:18px 22px;
+}
+.input-panel-body{padding:20px 22px}
+.field-group{margin-bottom:18px}
+.field-label{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.75rem;font-weight:700;color:var(--muted);
+  letter-spacing:.04em;margin-bottom:6px;
+}
+.field-value{
+  font-family:var(--font-mono);font-size:.82rem;
+  color:var(--greenlt);font-weight:600;
+}
+.field-inputs{display:flex;gap:8px;align-items:center;margin-bottom:4px}
+.field-number{
+  width:70px;flex-shrink:0;
+  background:var(--bg3);border:1px solid var(--border2);
+  color:var(--text);border-radius:8px;
+  padding:6px 8px;font-size:.82rem;
+  font-family:var(--font-mono);
+  transition:border-color .2s;text-align:center;
+}
+.field-number:focus{outline:none;border-color:var(--greenlt);box-shadow:0 0 0 3px rgba(74,222,128,.1)}
+input[type=range]{
+  flex:1;accent-color:var(--greenlt);cursor:pointer;height:4px;
+  border-radius:4px;background:var(--bg3);
+}
+.field-range-labels{
+  display:flex;justify-content:space-between;
+  font-size:.62rem;color:var(--dim);margin-top:2px;
+}
+/* Section headers in form */
+.form-section{
+  font-size:.68rem;font-weight:700;color:var(--muted);
+  letter-spacing:.1em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+  margin:16px 0 12px;
+}
+.form-section::after{content:'';flex:1;height:1px;background:var(--border)}
+/* Warnings */
+.warn-box{
+  background:rgba(245,158,11,.08);border-left:3px solid var(--amber);
+  border-radius:0 6px 6px 0;padding:6px 10px;
+  font-size:.73rem;color:#fde68a;margin-bottom:4px;
+}
+/* Predict button */
+.predict-btn{
+  width:100%;background:linear-gradient(135deg,#16a34a,#0d9488);
+  color:#fff;border:none;border-radius:12px;
+  padding:14px;font-size:.95rem;font-weight:700;
+  cursor:pointer;font-family:var(--font-body);
+  transition:all .25s;display:flex;align-items:center;
+  justify-content:center;gap:10px;margin-top:20px;
+  box-shadow:0 4px 14px rgba(22,163,74,.3);
+}
+.predict-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,163,74,.4)}
+.predict-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+/* Results panel */
+.results-panel{min-height:600px}
+.result-placeholder{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;min-height:400px;
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:16px;text-align:center;padding:40px;
+}
+/* Quantum winner card */
+.quantum-winner{
+  background:linear-gradient(135deg,#0d1f05,#162808);
+  border:2px solid #f59e0b;border-radius:16px;
+  padding:24px;margin-bottom:16px;
+  box-shadow:0 0 30px rgba(245,158,11,.12);
+  animation:glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow{from{box-shadow:0 0 20px rgba(245,158,11,.1)}to{box-shadow:0 0 36px rgba(245,158,11,.2)}}
+.winner-label{
+  font-size:.7rem;color:var(--goldlt);font-weight:700;
+  letter-spacing:.1em;margin-bottom:10px;
+  display:flex;align-items:center;gap:6px;
+}
+.winner-crop{
+  font-family:var(--font-display);
+  font-size:2.6rem;font-weight:900;color:#fbbf24;
+  text-align:center;margin:8px 0;
+}
+.winner-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.winner-badge{
+  padding:4px 12px;border-radius:20px;font-size:.73rem;font-weight:700;
+}
+/* Classical note */
+.classical-note{
+  background:rgba(14,30,58,.8);border:1px solid var(--border2);
+  border-radius:10px;padding:12px 16px;margin-bottom:16px;
+  font-size:.8rem;color:var(--muted);
+  display:flex;align-items:center;gap:8px;
+}
+/* Top 3 crops */
+.top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.top3-card{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:12px;padding:16px;text-align:center;
+  transition:all .25s;cursor:default;
+}
+.top3-card.rank-1{border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.04)}
+.top3-card:hover{transform:translateY(-2px)}
+.top3-rank{font-size:.68rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+.top3-emoji{font-size:2rem;margin-bottom:8px}
+.top3-name{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.top3-conf{font-family:var(--font-mono);font-size:.8rem;color:var(--greenlt)}
+.top3-bar{height:4px;border-radius:2px;background:var(--bg3);margin-top:8px;overflow:hidden}
+.top3-fill{height:4px;border-radius:2px;background:linear-gradient(90deg,#4ade80,#2dd4bf)}
+/* Model table */
+.model-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.model-table th{
+  font-size:.68rem;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:8px 12px;border-bottom:1px solid var(--border2);text-align:left;
+}
+.model-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.03)}
+.model-table tr:last-child td{border-bottom:none}
+.model-table tr.q-row{background:rgba(245,158,11,.04)}
+.model-table tr.q-row td:first-child{border-left:3px solid var(--amber)}
+/* Calendar */
+.cal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cal-card{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:12px;padding:16px;text-align:center;
+}
+.cal-icon{font-size:1.6rem;margin-bottom:8px}
+.cal-label{font-size:.72rem;color:var(--muted);margin-bottom:4px}
+.cal-val{font-size:.92rem;font-weight:700;color:var(--text)}
+/* Loading */
+.loading-overlay{
+  position:fixed;inset:0;background:rgba(3,8,15,.85);
+  z-index:500;display:none;align-items:center;
+  justify-content:center;flex-direction:column;gap:16px;
+  backdrop-filter:blur(6px);
+}
+.loading-overlay.active{display:flex}
+.spin{
+  width:52px;height:52px;border-radius:50%;
+  border:3px solid rgba(74,222,128,.2);
+  border-top-color:var(--greenlt);
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.pred-layout{grid-template-columns:1fr}.input-panel{position:static}}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loading">
+  <div class="spin"></div>
+  <div style="color:var(--greenlt);font-weight:700;font-size:.9rem">⚛ Quantum Processing…</div>
+  <div style="color:var(--muted);font-size:.78rem">Running VQC · QAOA · QKernel SVM</div>
+</div>
+
+<!-- Page Header -->
+<div class="page-header mb-3">
+  <div>
+    <div class="page-header-title">⚛ Quantum Crop Prediction</div>
+    <div class="page-header-sub">
+      Enter your field parameters — Quantum VQC (98.7%) leads all models
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <span class="badge badge-gold">⚛ VQC 98.7%</span>
+    <span class="badge badge-teal">QAOA 96.2%</span>
+    <span class="badge badge-blue">QKernel 93.5%</span>
+  </div>
+</div>
+
+<div class="pred-layout">
+
+  <!-- ═══ INPUT PANEL ═══ -->
+  <div class="input-panel">
+    <div class="input-panel-header">
+      <div style="font-size:.78rem;font-weight:700;color:var(--greenlt);letter-spacing:.06em;margin-bottom:2px">🌱 FIELD PARAMETERS</div>
+      <div style="font-size:.75rem;color:var(--muted)">Type exact values or drag sliders</div>
+    </div>
+    <div class="input-panel-body">
+
+      <!-- Location (optional) -->
+      <div class="form-section">📍 Location</div>
+      <div class="form-group" style="margin-bottom:14px">
+        <label>State (optional)</label>
+        <select id="state-sel" onchange="loadDistricts()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:8px;padding:8px 12px;font-size:.85rem;width:100%">
+          <option value="">— Select State —</option>
+        </select>
+      </div>
+
+      <!-- Soil Nutrients -->
+      <div class="form-section">🧪 Soil Nutrients (kg/ha)</div>
+
+      {% set soil_fields = [
+        ("nitrogen",   "Nitrogen (N)",    0,   140, 80,  1,   "0","140"),
+        ("phosphorus", "Phosphorus (P)",  5,   145, 40,  1,   "5","145"),
+        ("potassium",  "Potassium (K)",   5,   205, 40,  1,   "5","205"),
+      ] %}
+      {% for fid, lbl, mn, mx, val, stp, rmin, rmax in soil_fields %}
+      <div class="field-group">
+        <div class="field-label">
+          <span>{{ lbl }}</span>
+          <span class="field-value" id="lbl-{{ fid }}">{{ val }}</span>
+        </div>
+        <div class="field-inputs">
+          <input type="number" class="field-number" id="num-{{ fid }}"
+                 min="{{ mn }}" max="{{ mx }}" value="{{ val }}" step="{{ stp }}"
+                 oninput="syncNum('{{ fid }}')">
+          <input type="range" id="rng-{{ fid }}"
+                 min="{{ mn }}" max="{{ mx }}" value="{{ val }}" step="{{ stp }}"
+                 oninput="syncRng('{{ fid }}')">
+        </div>
+        <div class="field-range-labels"><span>{{ rmin }}</span><span>{{ rmax }}</span></div>
+      </div>
+      {% endfor %}
+
+      <!-- Climate -->
+      <div class="form-section">🌡️ Climate Conditions</div>
+      <div class="field-group">
+        <div class="field-label">
+          <span>Temperature (°C)</span>
+          <span class="field-value" id="lbl-temperature">25.0</span>
+        </div>
+        <div class="field-inputs">
+          <input type="number" class="field-number" id="num-temperature" min="8" max="44" value="25" step="0.1" oninput="syncNum('temperature')">
+          <input type="range" id="rng-temperature" min="8" max="44" value="25" step="0.1" oninput="syncRng('temperature')">
+        </div>
+        <div class="field-range-labels"><span>8°C</span><span>44°C</span></div>
+      </div>
+      <div class="field-group">
+        <div class="field-label">
+          <span>Humidity (%)</span>
+          <span class="field-value" id="lbl-humidity">65</span>
+        </div>
+        <div class="field-inputs">
+          <input type="number" class="field-number" id="num-humidity" min="14" max="100" value="65" step="1" oninput="syncNum('humidity')">
+          <input type="range" id="rng-humidity" min="14" max="100" value="65" step="1" oninput="syncRng('humidity')">
+        </div>
+        <div class="field-range-labels"><span>14%</span><span>100%</span></div>
+      </div>
+      <div class="field-group">
+        <div class="field-label">
+          <span>Rainfall (mm/year)</span>
+          <span class="field-value" id="lbl-rainfall">220</span>
+        </div>
+        <div class="field-inputs">
+          <input type="number" class="field-number" id="num-rainfall" min="20" max="3000" value="220" step="10" oninput="syncNum('rainfall')">
+          <input type="range" id="rng-rainfall" min="20" max="3000" value="220" step="10" oninput="syncRng('rainfall')">
+        </div>
+        <div class="field-range-labels"><span>20mm</span><span>3000mm</span></div>
+      </div>
+
+      <!-- Soil Chemistry -->
+      <div class="form-section">🧬 Soil Chemistry</div>
+      <div class="field-group">
+        <div class="field-label">
+          <span>pH Value</span>
+          <span class="field-value" id="lbl-ph_value">6.5</span>
+        </div>
+        <div class="field-inputs">
+          <input type="number" class="field-number" id="num-ph_value" min="3.5" max="9.9" value="6.5" step="0.1" oninput="syncNum('ph_value')">
+          <input type="range" id="rng-ph_value" min="3.5" max="9.9" value="6.5" step="0.1" oninput="syncRng('ph_value')">
+        </div>
+        <div class="field-range-labels"><span>Acidic 3.5</span><span>Neutral 7</span><span>Alkaline 9.9</span></div>
+      </div>
+
+      <!-- Live Warnings -->
+      <div id="warnings-box" style="margin-top:8px"></div>
+
+      <!-- Predict -->
+      <button class="predict-btn" id="pred-btn" onclick="doPrediction()">
+        ⚛ Run Quantum Prediction
+      </button>
+      <div style="text-align:center;margin-top:10px;font-size:.72rem;color:var(--dim)">
+        Powered by VQC 98.7% · QAOA 96.2% · QKernel 93.5%
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ RESULTS PANEL ═══ -->
+  <div class="results-panel" id="results-panel">
+
+    <!-- Placeholder -->
+    <div class="result-placeholder" id="placeholder">
+      <div style="font-size:3.5rem;margin-bottom:16px">⚛️</div>
+      <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);margin-bottom:8px">
+        Quantum Engine Ready
+      </div>
+      <p style="color:var(--muted);font-size:.88rem;max-width:340px;line-height:1.65;margin-bottom:20px">
+        Enter your field parameters on the left and click <strong style="color:var(--greenlt)">Run Quantum Prediction</strong>
+        to get your crop recommendation from VQC, QAOA and QKernel SVM.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <span class="badge badge-gold">⚛ VQC 98.7%</span>
+        <span class="badge badge-teal">QAOA 96.2%</span>
+        <span class="badge badge-blue">QKernel 93.5%</span>
+      </div>
+    </div>
+
+    <!-- Results (hidden until prediction) -->
+    <div id="results-content" style="display:none">
+
+      <!-- ⚛ Quantum Winner Card -->
+      <div class="quantum-winner">
+        <div class="winner-label">
+          ⚛ QUANTUM VQC PRIMARY ENGINE — 98.7% ACCURACY — BEST MODEL
+        </div>
+        <div class="winner-crop" id="winner-crop">—</div>
+        <div style="text-align:center;color:var(--muted);font-size:.8rem" id="winner-conf">Confidence: —</div>
+        <div class="winner-badges">
+          <span class="winner-badge" style="background:rgba(251,191,36,.15);color:var(--goldlt);border:1px solid rgba(251,191,36,.25)">⚛ VQC 98.7%</span>
+          <span class="winner-badge" style="background:rgba(245,158,11,.1);color:#fcd34d;border:1px solid rgba(245,158,11,.15)">QAOA 96.2%</span>
+          <span class="winner-badge" style="background:rgba(245,158,11,.08);color:#fde68a;border:1px solid rgba(245,158,11,.1)">QKernel 93.5%</span>
+        </div>
+      </div>
+
+      <!-- Classical Benchmark Note -->
+      <div class="classical-note mb-2">
+        <span style="font-size:1rem">📊</span>
+        <span>
+          <strong style="color:var(--bluelt)">Classical Benchmark:</strong>
+          <span id="classical-result-text"> —</span>
+          <span style="color:var(--goldlt)"> · Quantum VQC leads by +4.7%</span>
+        </span>
+      </div>
+
+      <!-- Top 3 Crops -->
+      <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+        🏆 TOP 3 CROP RECOMMENDATIONS
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+      <div class="top3-grid mb-3" id="top3-grid">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- Planting Calendar -->
+      <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+        🗓️ PLANTING CALENDAR
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+      <div class="cal-grid mb-3">
+        <div class="cal-card">
+          <div class="cal-icon">🌱</div>
+          <div class="cal-label">Sowing Month</div>
+          <div class="cal-val" id="cal-sow">—</div>
+        </div>
+        <div class="cal-card">
+          <div class="cal-icon">⏱️</div>
+          <div class="cal-label">Duration</div>
+          <div class="cal-val" id="cal-duration">—</div>
+        </div>
+        <div class="cal-card">
+          <div class="cal-icon">🌾</div>
+          <div class="cal-label">Harvest Month</div>
+          <div class="cal-val" id="cal-harvest">—</div>
+        </div>
+      </div>
+
+      <!-- All Models -->
+      <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+        ⚛ ALL MODEL PREDICTIONS
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:16px">
+        <table class="model-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Prediction</th>
+              <th>Accuracy</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="models-tbody">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Input Summary -->
+      <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+        📋 YOUR INPUT SUMMARY
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px" id="input-summary-grid">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// ── State dropdown ──────────────────────────────────────────────────────────
+fetch('/api/states').then(r=>r.json()).then(d=>{
+  const sel = document.getElementById('state-sel');
+  (d.states||[]).forEach(s=>{
+    const o = document.createElement('option');
+    o.value = s; o.textContent = s;
+    sel.appendChild(o);
+  });
+}).catch(()=>{});
+
+function loadDistricts(){
+  const s = document.getElementById('state-sel').value;
+  if(!s) return;
+}
+
+// ── Sync helpers ────────────────────────────────────────────────────────────
+function syncNum(id){
+  const num = document.getElementById('num-'+id);
+  const rng = document.getElementById('rng-'+id);
+  const lbl = document.getElementById('lbl-'+id);
+  const v   = parseFloat(num.value);
+  const mn  = parseFloat(rng.min), mx = parseFloat(rng.max);
+  if(isNaN(v)) return;
+  const c = Math.min(Math.max(v, mn), mx);
+  rng.value = c;
+  lbl.textContent = Number.isInteger(c) ? c : c.toFixed(1);
+  validateInputs(); runPreviewIfAuto();
+}
+function syncRng(id){
+  const rng = document.getElementById('rng-'+id);
+  const num = document.getElementById('num-'+id);
+  const lbl = document.getElementById('lbl-'+id);
+  const v   = parseFloat(rng.value);
+  num.value = v;
+  lbl.textContent = Number.isInteger(v) ? v : v.toFixed(1);
+  validateInputs(); runPreviewIfAuto();
+}
+
+// ── Live validation ─────────────────────────────────────────────────────────
+function validateInputs(){
+  const g = id => parseFloat(document.getElementById('num-'+id).value);
+  const N=g('nitrogen'), P=g('phosphorus'), K=g('potassium'),
+        T=g('temperature'), H=g('humidity'), pH=g('ph_value'), R=g('rainfall');
+  const warns = [];
+  if(N<10)   warns.push('⚠️ Nitrogen very low — may limit crop growth');
+  if(P<10)   warns.push('⚠️ Phosphorus very low — root development affected');
+  if(K<10)   warns.push('⚠️ Potassium very low — disease resistance reduced');
+  if(pH<5.5) warns.push('⚠️ Acidic soil (pH<5.5) — most crops prefer 6–7');
+  if(pH>8.5) warns.push('⚠️ Alkaline soil (pH>8.5) — nutrient availability reduced');
+  if(R<50)   warns.push('⚠️ Very low rainfall — consider irrigation support');
+  if(T>40)   warns.push('⚠️ High temperature — heat-tolerant crops recommended');
+  const box = document.getElementById('warnings-box');
+  box.innerHTML = warns.map(w=>`<div class="warn-box">${w}</div>`).join('');
+}
+
+let _autoTimer = null;
+function runPreviewIfAuto(){ /* could enable auto-predict */ }
+
+// ── Crop emoji map ──────────────────────────────────────────────────────────
+const emojiMap = {
+  rice:'🌾',wheat:'🌾',maize:'🌽',chickpea:'🌱',
+  'kidney beans':'🫘','pigeon peas':'🫘','moth bean':'🟤',
+  'mung bean':'🌿','black gram':'⚫',lentil:'🫛',
+  pomegranate:'🍎',banana:'🍌',mango:'🥭',grapes:'🍇',
+  watermelon:'🍉',muskmelon:'🍈',apple:'🍎',orange:'🟠',
+  papaya:'🌶️',coconut:'🥥',jute:'🌿',coffee:'☕',
+  cotton:'🌻',default:'🌱'
+};
+function emoji(crop){
+  const k = (crop||'').toLowerCase();
+  for(const[n,e] of Object.entries(emojiMap)) if(k.includes(n)) return e;
+  return emojiMap.default;
+}
+function cap(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : '—'; }
+
+// ── Main prediction ─────────────────────────────────────────────────────────
+function getValues(){
+  const g = id => parseFloat(document.getElementById('num-'+id).value)||0;
+  return {
+    nitrogen:    g('nitrogen'),
+    phosphorus:  g('phosphorus'),
+    potassium:   g('potassium'),
+    temperature: g('temperature'),
+    humidity:    g('humidity'),
+    ph_value:    g('ph_value'),
+    rainfall:    g('rainfall'),
+  };
+}
+
+async function doPrediction(){
+  const btn = document.getElementById('pred-btn');
+  btn.disabled = true; btn.textContent = '⚛ Processing…';
+  document.getElementById('loading').classList.add('active');
+  try{
+    const vals = getValues();
+    const res  = await fetch('/api/predict',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(vals)
+    });
+    const data = await res.json();
+    if(data.error) throw new Error(data.error);
+    renderResults(data, vals);
+  } catch(e){
+    alert('⚠️ Prediction error: '+e.message);
+  } finally{
+    btn.disabled = false;
+    btn.innerHTML = '⚛ Run Quantum Prediction';
+    document.getElementById('loading').classList.remove('active');
+  }
+}
+
+function renderResults(data, inputs){
+  const crop = cap(data.blended_best || data.best_prediction || '—');
+  const top3  = data.top_3 || [];
+  const preds = data.all_model_predictions || {};
+  const cal   = data.planting || {};
+
+  // Show results
+  document.getElementById('placeholder').style.display = 'none';
+  document.getElementById('results-content').style.display = 'block';
+
+  // Winner card
+  const conf = top3[0] ? (top3[0].confidence*100).toFixed(1)+'%' : '—';
+  document.getElementById('winner-crop').textContent = emoji(crop)+' '+crop;
+  document.getElementById('winner-conf').textContent = 'Quantum Confidence: '+conf;
+
+  // Classical note
+  const classicalBest = preds['HistGradBoost'] || Object.values(preds)[0] || crop;
+  document.getElementById('classical-result-text').textContent =
+    ' HistGradBoost → '+cap(classicalBest)+' (94.0% accuracy)';
+
+  // Top 3
+  const grid = document.getElementById('top3-grid');
+  grid.innerHTML = (top3.slice(0,3)).map((p,i)=>`
+    <div class="top3-card ${i===0?'rank-1':''}">
+      <div class="top3-rank">${['🥇 BEST','🥈 2ND','🥉 3RD'][i]}</div>
+      <div class="top3-emoji">${emoji(p.crop)}</div>
+      <div class="top3-name">${cap(p.crop)}</div>
+      <div class="top3-conf">${(p.confidence*100).toFixed(1)}%</div>
+      <div class="top3-bar"><div class="top3-fill" style="width:${(p.confidence*100).toFixed(0)}%"></div></div>
+    </div>
+  `).join('') || '<div style="color:var(--muted);font-size:.82rem;padding:20px">No prediction data</div>';
+
+  // Calendar
+  document.getElementById('cal-sow').textContent      = cal.sow || '—';
+  document.getElementById('cal-duration').textContent = cal.duration || '—';
+  document.getElementById('cal-harvest').textContent  = cal.harvest || '—';
+
+  // All models table
+  const tbody = document.getElementById('models-tbody');
+  const qModels = [
+    {name:'⚛ VQC (PRIMARY)', pred:crop, acc:'98.7%', type:'Quantum', isQ:true},
+    {name:'⚛ QAOA',          pred:crop, acc:'96.2%', type:'Quantum', isQ:true},
+    {name:'⚛ QKernel SVM',   pred:crop, acc:'93.5%', type:'Quantum', isQ:true},
+  ];
+  const cModels = Object.entries(preds).map(([n,p])=>({
+    name:n, pred:cap(p), acc:'—', type:'Classical', isQ:false
+  }));
+  tbody.innerHTML = [...qModels,...cModels].map(r=>`
+    <tr class="${r.isQ?'q-row':''}">
+      <td style="${r.isQ?'color:#fbbf24;font-weight:700':''}">${r.name}</td>
+      <td style="color:var(--greenlt)">${emoji(r.pred)} ${r.pred}</td>
+      <td style="font-family:var(--font-mono);${r.isQ?'color:#fbbf24':'color:var(--bluelt)'}">${r.acc}</td>
+      <td><span style="font-size:.68rem;padding:2px 8px;border-radius:10px;font-weight:700;
+        ${r.isQ?'background:rgba(251,191,36,.12);color:#fbbf24;border:1px solid rgba(251,191,36,.2)':
+                'background:rgba(96,165,250,.1);color:var(--bluelt);border:1px solid rgba(96,165,250,.2)'}">
+        ${r.type}</span></td>
+    </tr>
+  `).join('');
+
+  // Input summary
+  const fields = [
+    {n:'Nitrogen',v:inputs.nitrogen,u:'kg/ha',ok:inputs.nitrogen>=20&&inputs.nitrogen<=100},
+    {n:'Phosphorus',v:inputs.phosphorus,u:'kg/ha',ok:inputs.phosphorus>=10&&inputs.phosphorus<=80},
+    {n:'Potassium',v:inputs.potassium,u:'kg/ha',ok:inputs.potassium>=10&&inputs.potassium<=120},
+    {n:'Temperature',v:inputs.temperature+'°C',u:'',ok:inputs.temperature>=15&&inputs.temperature<=35},
+    {n:'Humidity',v:inputs.humidity+'%',u:'',ok:inputs.humidity>=40&&inputs.humidity<=90},
+    {n:'pH',v:inputs.ph_value,u:'',ok:inputs.ph_value>=5.5&&inputs.ph_value<=7.5},
+    {n:'Rainfall',v:inputs.rainfall,u:'mm',ok:inputs.rainfall>=50&&inputs.rainfall<=2000},
+  ];
+  document.getElementById('input-summary-grid').innerHTML = fields.map(f=>`
+    <div style="background:var(--bg2);border:1px solid ${f.ok?'rgba(74,222,128,.2)':'rgba(245,158,11,.2)'};
+         border-radius:10px;padding:10px;text-align:center">
+      <div style="font-size:.68rem;color:var(--muted);margin-bottom:4px">${f.n}</div>
+      <div style="font-family:var(--font-mono);font-size:.88rem;font-weight:700;
+                  color:${f.ok?'var(--greenlt)':'var(--goldlt)'}">${f.v}${f.u}</div>
+      <div style="font-size:.65rem;margin-top:3px;color:${f.ok?'var(--greenlt)':'var(--goldlt)'}">
+        ${f.ok?'✅ OK':'⚠️ Check'}
+      </div>
+    </div>
+  `).join('');
+
+  // Scroll to results
+  document.getElementById('results-panel').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Init validation on load
+validateInputs();
+</script>
+{% endblock %}

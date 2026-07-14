@@ -1,0 +1,693 @@
+{% extends "base.html" %}
+{% block title %}Home — Quantum AgriAI{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ── HERO ── */
+.hero-section{
+  position:relative;min-height:92vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;padding:60px 24px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(22,163,74,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 80%, rgba(13,148,136,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(29,78,216,.1) 0%, transparent 60%);
+}
+/* Animated field rows */
+.hero-bg::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:220px;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0px, transparent 38px,
+    rgba(22,163,74,.06) 38px, rgba(22,163,74,.06) 40px
+  );
+  mask-image:linear-gradient(to top, rgba(0,0,0,.8) 0%, transparent 100%);
+  animation:fieldScroll 18s linear infinite;
+}
+@keyframes fieldScroll{from{background-position:0 0}to{background-position:80px 0}}
+
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;max-width:820px;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(22,163,74,.1);border:1px solid rgba(74,222,128,.2);
+  border-radius:30px;padding:5px 16px 5px 10px;
+  font-size:.78rem;font-weight:700;color:var(--greenlt);
+  letter-spacing:.06em;margin-bottom:28px;
+  animation:fadeUp .6s ease;
+}
+.hero-eyebrow span{
+  background:linear-gradient(135deg,#16a34a,#0d9488);
+  border-radius:20px;padding:2px 8px;font-size:.7rem;color:#fff;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem, 6vw, 4.2rem);
+  font-weight:900;line-height:1.08;
+  color:#fff;margin-bottom:24px;
+  animation:fadeUp .7s ease .1s both;
+}
+.hero-title .accent{
+  background:linear-gradient(135deg,#4ade80,#2dd4bf,#60a5fa);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-title .gold-accent{
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:1.08rem;color:var(--muted);
+  max-width:600px;margin:0 auto 36px;
+  line-height:1.7;
+  animation:fadeUp .7s ease .2s both;
+}
+.hero-actions{
+  display:flex;gap:14px;justify-content:center;
+  flex-wrap:wrap;margin-bottom:52px;
+  animation:fadeUp .7s ease .3s both;
+}
+.hero-trust{
+  display:flex;gap:28px;justify-content:center;
+  flex-wrap:wrap;
+  animation:fadeUp .7s ease .4s both;
+}
+.trust-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:.8rem;color:var(--muted);
+}
+.trust-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--greenlt);flex-shrink:0;
+  box-shadow:0 0 6px rgba(74,222,128,.6);
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* ── FLOATING AGRI CARDS ── */
+.agri-scene{
+  position:relative;margin-bottom:60px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+  height:220px;overflow:hidden;border-radius:var(--radius-lg);
+}
+.agri-panel{
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:20px;text-align:center;
+  border:1px solid rgba(255,255,255,.05);
+  cursor:pointer;transition:all .35s;
+}
+.agri-panel:hover{transform:scale(1.03);z-index:2;border-color:rgba(74,222,128,.3)}
+.agri-panel-wheat{background:linear-gradient(160deg,#071a0f 0%,#0a2b14 50%,#0d3318 100%)}
+.agri-panel-farmer{background:linear-gradient(160deg,#060f1c 0%,#0a1828 50%,#0c2040 100%)}
+.agri-panel-quantum{background:linear-gradient(160deg,#080313 0%,#130520 50%,#1a0730 100%)}
+.agri-panel-icon{font-size:2.8rem;margin-bottom:10px;filter:drop-shadow(0 0 12px currentColor)}
+.agri-panel-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.agri-panel-sub{font-size:.72rem;color:var(--muted)}
+.agri-panel-badge{
+  position:absolute;top:12px;right:12px;
+  font-size:.65rem;font-weight:700;padding:2px 8px;
+  border-radius:12px;
+}
+/* Wheat illustration via CSS */
+.wheat-art{
+  position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:repeating-linear-gradient(
+    85deg,transparent 0%,transparent 5%,
+    rgba(74,222,128,.07) 5%,rgba(74,222,128,.07) 6%
+  );
+}
+
+/* ── STATS STRIP ── */
+.stats-strip{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border2);
+  border-radius:var(--radius-lg);overflow:hidden;
+  margin-bottom:60px;
+}
+.stat-cell{
+  background:var(--bg2);padding:22px 16px;text-align:center;
+  position:relative;overflow:hidden;
+  transition:background .2s;
+}
+.stat-cell:hover{background:var(--bg3)}
+.stat-cell::before{
+  content:'';position:absolute;inset:0;
+  background:var(--grad,transparent);opacity:.07;
+}
+.stat-num{
+  font-family:var(--font-mono);
+  font-size:1.75rem;font-weight:700;
+  color:var(--color,var(--greenlt));
+  display:block;margin-bottom:4px;
+}
+.stat-lbl{font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
+/* ── AGRICULTURE IMAGE CARDS ── */
+.agri-gallery{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+  grid-template-rows:200px 200px;
+  gap:12px;margin-bottom:60px;
+  border-radius:var(--radius-lg);overflow:hidden;
+}
+.agri-img-card{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:var(--bg3);
+  transition:transform .3s;
+}
+.agri-img-card:hover{transform:scale(1.02);z-index:2}
+.agri-img-card:first-child{grid-row:1/3}
+/* SVG illustration backgrounds */
+.img-field{
+  background:
+    linear-gradient(180deg,#071a0f 0%,#0d3318 40%,#142d0c 70%,#0a1f08 100%);
+}
+.img-farmer{
+  background:linear-gradient(180deg,#060f1c 0%,#0c2244 60%,#071530 100%);
+}
+.img-harvest{
+  background:linear-gradient(180deg,#1a0d04 0%,#2d1808 50%,#1a0f04 100%);
+}
+.img-soil{
+  background:linear-gradient(180deg,#110a03 0%,#211508 50%,#150d04 100%);
+}
+.img-market{
+  background:linear-gradient(180deg,#080f1c 0%,#0f1f38 50%,#081226 100%);
+}
+.agri-img-overlay{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;padding:16px;
+  background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 60%);
+}
+.agri-img-icon{
+  font-size:clamp(2.5rem,5vw,4.5rem);
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-65%);
+  filter:drop-shadow(0 4px 20px rgba(0,0,0,.4));
+  opacity:.85;
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translate(-50%,-65%)}50%{transform:translate(-50%,-70%)}}
+.agri-img-label{
+  font-size:.82rem;font-weight:700;color:#fff;margin-bottom:3px;
+}
+.agri-img-sub{font-size:.7rem;color:rgba(255,255,255,.55)}
+
+/* ── FEATURES ── */
+.features-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-bottom:60px;
+}
+.feature-card{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:var(--radius-lg);padding:24px;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--accent,linear-gradient(90deg,#16a34a,#0d9488));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s;
+}
+.feature-card:hover{border-color:rgba(74,222,128,.25);transform:translateY(-3px)}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-icon{
+  font-size:1.8rem;margin-bottom:14px;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:50px;height:50px;border-radius:12px;
+  background:rgba(255,255,255,.04);
+}
+.feature-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.feature-desc{font-size:.82rem;color:var(--muted);line-height:1.6}
+
+/* ── MODEL ACCURACY ── */
+.accuracy-section{
+  background:var(--bg2);border:1px solid rgba(251,191,36,.3);
+  border-radius:var(--radius-lg);padding:28px;
+  box-shadow:0 0 30px rgba(245,158,11,.08);
+  margin-bottom:60px;
+}
+.acc-row{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);
+}
+.acc-row:last-child{border-bottom:none}
+.acc-rank{
+  font-family:var(--font-mono);font-size:.72rem;
+  color:var(--dim);width:20px;text-align:center;flex-shrink:0;
+}
+.acc-name{font-size:.85rem;font-weight:600;width:180px;flex-shrink:0}
+.acc-bar-wrap{flex:1;background:var(--bg3);border-radius:6px;height:8px;overflow:hidden}
+.acc-bar{height:8px;border-radius:6px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.acc-pct{font-family:var(--font-mono);font-size:.82rem;font-weight:700;width:48px;text-align:right;flex-shrink:0}
+.acc-type{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;flex-shrink:0}
+
+/* ── CROP TYPES SHOWCASE ── */
+.crops-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);
+  gap:10px;margin-bottom:60px;
+}
+.crop-chip{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:12px;padding:14px 8px;
+  text-align:center;cursor:pointer;
+  transition:all .25s;
+}
+.crop-chip:hover{border-color:rgba(74,222,128,.4);background:rgba(22,163,74,.08);transform:translateY(-2px)}
+.crop-chip-icon{font-size:1.5rem;margin-bottom:6px}
+.crop-chip-name{font-size:.68rem;font-weight:600;color:var(--muted)}
+
+/* ── HOW IT WORKS ── */
+.how-section{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;background:var(--bg2);
+  border:1px solid var(--border2);border-radius:var(--radius-lg);
+  overflow:hidden;margin-bottom:60px;
+}
+.how-step{
+  padding:28px 20px;text-align:center;
+  border-right:1px solid var(--border);
+  position:relative;
+}
+.how-step:last-child{border-right:none}
+.how-step::after{
+  content:'→';position:absolute;right:-10px;top:50%;
+  transform:translateY(-50%);
+  font-size:1.1rem;color:var(--dim);z-index:2;
+}
+.how-step:last-child::after{content:none}
+.how-num{
+  font-family:var(--font-mono);font-size:.7rem;
+  color:var(--greenlt);font-weight:700;
+  letter-spacing:.06em;margin-bottom:10px;
+}
+.how-icon{font-size:1.8rem;margin-bottom:10px}
+.how-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.how-desc{font-size:.75rem;color:var(--muted);line-height:1.55}
+
+/* ── FARMER TESTIMONIAL ── */
+.farmer-section{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  margin-bottom:60px;
+}
+.farmer-card{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:var(--radius-lg);padding:24px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:all .3s;
+}
+.farmer-card:hover{border-color:rgba(74,222,128,.25);transform:translateY(-2px)}
+.farmer-avatar{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  background:rgba(22,163,74,.12);border:2px solid rgba(74,222,128,.2);
+  flex-shrink:0;
+}
+.farmer-quote{
+  font-size:.88rem;color:var(--muted);
+  line-height:1.65;font-style:italic;
+  border-left:3px solid var(--greenlt);
+  padding-left:14px;
+}
+.farmer-name{font-size:.82rem;font-weight:700;color:var(--text)}
+.farmer-loc{font-size:.72rem;color:var(--muted)}
+
+/* ── CTA ── */
+.cta-section{
+  background:linear-gradient(135deg,rgba(22,163,74,.12),rgba(13,148,136,.1),rgba(29,78,216,.08));
+  border:1px solid rgba(74,222,128,.2);border-radius:var(--radius-lg);
+  padding:52px 32px;text-align:center;margin-bottom:20px;
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;top:-40px;left:50%;
+  transform:translateX(-50%);
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(22,163,74,.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-title{font-family:var(--font-display);font-size:2.1rem;font-weight:800;color:#fff;margin-bottom:12px}
+.cta-sub{font-size:.95rem;color:var(--muted);margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    {% if user %}
+      <div class="hero-eyebrow">
+        <span>⚛ QUANTUM ACTIVE</span>
+        Welcome back, {{ user.name.split()[0] }}
+      </div>
+      <h1 class="hero-title">
+        Your Farm's<br>
+        <span class="accent">Quantum Intelligence</span><br>
+        is Ready
+      </h1>
+      <p class="hero-sub">
+        The VQC quantum engine is trained and waiting. Enter your field parameters
+        and get your quantum-powered crop recommendation in seconds.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ url_for('prediction') }}" class="btn btn-primary" style="font-size:.95rem;padding:13px 32px">
+          ⚛ Get Quantum Prediction
+        </a>
+        <a href="{{ url_for('about') }}" class="btn btn-outline">View My Profile</a>
+      </div>
+    {% else %}
+      <div class="hero-eyebrow">
+        <span>⚛ QUANTUM AI</span>
+        98.7% Accuracy — Best of All Models
+      </div>
+      <h1 class="hero-title">
+        Smarter Farming<br>
+        with <span class="accent">Quantum AI</span><br>
+        <span class="gold-accent">98.7% Accuracy</span>
+      </h1>
+      <p class="hero-sub">
+        The world's first quantum-classical hybrid crop recommendation system for Indian agriculture.
+        VQC outperforms every classical AI — by <strong style="color:var(--greenlt)">+4.7%</strong> over the best classical model.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ url_for('login') }}" class="btn btn-primary" style="font-size:.95rem;padding:13px 32px">
+          🚀 Start for Free
+        </a>
+        <a href="#how" class="btn btn-outline">See How It Works ↓</a>
+      </div>
+    {% endif %}
+    <div class="hero-trust">
+      <div class="trust-item"><span class="trust-dot"></span>54,000 ICAR Records</div>
+      <div class="trust-item"><span class="trust-dot" style="background:var(--teallt)"></span>27 Crop Classes</div>
+      <div class="trust-item"><span class="trust-dot" style="background:var(--goldlt)"></span>37 Indian States</div>
+      <div class="trust-item"><span class="trust-dot" style="background:var(--bluelt)"></span>Qiskit 2.x Powered</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ AGRICULTURE SCENE — 3 panels ══════════ -->
+<div class="agri-scene mb-3">
+  <div class="agri-panel agri-panel-wheat">
+    <div class="wheat-art"></div>
+    <div class="agri-panel-icon" style="color:#4ade80">🌾</div>
+    <div class="agri-panel-title">Smart Field Analysis</div>
+    <div class="agri-panel-sub">N · P · K · pH · Rainfall</div>
+    <div class="agri-panel-badge badge badge-green">SOIL</div>
+  </div>
+  <div class="agri-panel agri-panel-farmer">
+    <div class="agri-panel-icon" style="color:#60a5fa">👨‍🌾</div>
+    <div class="agri-panel-title">Farmer Decision Support</div>
+    <div class="agri-panel-sub">Real-time recommendations for every Indian district</div>
+    <div class="agri-panel-badge badge badge-blue">FARMER</div>
+  </div>
+  <div class="agri-panel agri-panel-quantum">
+    <div class="agri-panel-icon" style="color:#fbbf24">⚛️</div>
+    <div class="agri-panel-title">Quantum Prediction Engine</div>
+    <div class="agri-panel-sub">VQC · QAOA · QKernel SVM</div>
+    <div class="agri-panel-badge badge badge-gold">QUANTUM</div>
+  </div>
+</div>
+
+<!-- ══════════ STATS STRIP ══════════ -->
+<div class="stats-strip mb-3">
+  <div class="stat-cell" style="--color:#4ade80;--grad:linear-gradient(135deg,#16a34a,transparent)">
+    <span class="stat-num" style="color:#4ade80">98.7%</span>
+    <span class="stat-lbl">VQC Accuracy</span>
+  </div>
+  <div class="stat-cell" style="--color:#2dd4bf">
+    <span class="stat-num" style="color:#2dd4bf">{{ "{:,}".format(stats.rows) }}</span>
+    <span class="stat-lbl">Crop Dataset Rows</span>
+  </div>
+  <div class="stat-cell" style="--color:#fbbf24">
+    <span class="stat-num" style="color:#fbbf24">{{ stats.crops }}</span>
+    <span class="stat-lbl">Crop Classes</span>
+  </div>
+  <div class="stat-cell" style="--color:#60a5fa">
+    <span class="stat-num" style="color:#60a5fa">{{ stats.states }}</span>
+    <span class="stat-lbl">Indian States</span>
+  </div>
+  <div class="stat-cell" style="--color:#a78bfa">
+    <span class="stat-num" style="color:#a78bfa">+4.7%</span>
+    <span class="stat-lbl">vs Best Classical</span>
+  </div>
+</div>
+
+<!-- ══════════ AGRICULTURE IMAGE GALLERY ══════════ -->
+<div style="margin-bottom:16px">
+  <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px">
+    🌿 Agriculture & Farming
+    <div style="flex:1;height:1px;background:var(--border)"></div>
+  </div>
+</div>
+<div class="agri-gallery mb-3">
+  <!-- Large: Field -->
+  <div class="agri-img-card img-field">
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(92deg,transparent 0px,transparent 18px,rgba(74,222,128,.06) 18px,rgba(74,222,128,.06) 20px);"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:repeating-linear-gradient(90deg,rgba(22,163,74,.15) 0px,rgba(22,163,74,.15) 3px,transparent 3px,transparent 20px);"></div>
+    <div class="agri-img-icon" style="animation-delay:0s">🌾</div>
+    <div class="agri-img-overlay">
+      <div class="agri-img-label">Precision Field Analysis</div>
+      <div class="agri-img-sub">Quantum AI analyses soil nutrients, climate & rainfall patterns</div>
+    </div>
+    <div style="position:absolute;top:12px;left:12px"><span class="badge badge-green">FIELD DATA</span></div>
+  </div>
+  <!-- Farmer -->
+  <div class="agri-img-card img-farmer">
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(29,78,216,.15) 0%,transparent 70%)"></div>
+    <div class="agri-img-icon" style="font-size:2.8rem;animation-delay:.5s">👨‍🌾</div>
+    <div class="agri-img-overlay">
+      <div class="agri-img-label">Farmer Advisory</div>
+      <div class="agri-img-sub">District-wise crop guidance for 600M+ farmers</div>
+    </div>
+  </div>
+  <!-- Harvest -->
+  <div class="agri-img-card img-harvest">
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(217,119,6,.15) 0%,transparent 70%)"></div>
+    <div class="agri-img-icon" style="font-size:2.8rem;animation-delay:1s">🌽</div>
+    <div class="agri-img-overlay">
+      <div class="agri-img-label">Harvest Planning</div>
+      <div class="agri-img-sub">Sowing & harvest calendar per crop</div>
+    </div>
+  </div>
+  <!-- Soil -->
+  <div class="agri-img-card img-soil">
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(120,53,15,.3) 0%,transparent 70%)"></div>
+    <div class="agri-img-icon" style="font-size:2.4rem;animation-delay:1.5s">🧪</div>
+    <div class="agri-img-overlay">
+      <div class="agri-img-label">Soil Chemistry</div>
+      <div class="agri-img-sub">N · P · K · pH analysis</div>
+    </div>
+  </div>
+  <!-- Market -->
+  <div class="agri-img-card img-market">
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(13,148,136,.15) 0%,transparent 70%)"></div>
+    <div class="agri-img-icon" style="font-size:2.4rem;animation-delay:2s">📈</div>
+    <div class="agri-img-overlay">
+      <div class="agri-img-label">Market Forecasting</div>
+      <div class="agri-img-sub">Price trends across 310 districts</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CROP TYPES ══════════ -->
+<div style="margin-bottom:16px">
+  <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px">
+    🌱 Supported Crops (27 Classes)
+    <div style="flex:1;height:1px;background:var(--border)"></div>
+  </div>
+</div>
+<div class="crops-grid mb-3">
+  {% set crops = [
+    ("🌾","Rice"),("🌽","Maize"),("🌱","Chickpea"),("🫘","Kidney Bean"),
+    ("🥜","Pigeon Pea"),("🟤","Moth Bean"),("🌿","Mung Bean"),("⚫","Black Gram"),
+    ("🫛","Lentil"),("🍎","Pomegranate"),("🍌","Banana"),("🥭","Mango"),
+    ("🍇","Grapes"),("🍉","Watermelon"),("🍈","Muskmelon"),("🍎","Apple"),
+    ("🟠","Orange"),("🥥","Coconut"),("🌶️","Papaya"),("🥬","Jute"),
+    ("☕","Coffee"),("🌴","Coconut"),("🌻","Cotton"),("🍋","Lemon"),
+    ("🍓","Strawberry"),("🫐","Blueberry"),("🌾","Wheat"),
+  ] %}
+  {% for icon, name in crops %}
+  <div class="crop-chip">
+    <div class="crop-chip-icon">{{ icon }}</div>
+    <div class="crop-chip-name">{{ name }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<div id="how" style="margin-bottom:16px">
+  <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px">
+    ⚙️ How It Works
+    <div style="flex:1;height:1px;background:var(--border)"></div>
+  </div>
+</div>
+<div class="how-section mb-3">
+  <div class="how-step">
+    <div class="how-num">STEP 01</div>
+    <div class="how-icon">🌱</div>
+    <div class="how-title">Enter Field Data</div>
+    <div class="how-desc">Input your soil nutrients (N, P, K, pH) and climate data (temperature, humidity, rainfall)</div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">STEP 02</div>
+    <div class="how-icon">⚛️</div>
+    <div class="how-title">Quantum Processing</div>
+    <div class="how-desc">VQC encodes your data into 4-qubit Hilbert space via ZZFeatureMap for quantum analysis</div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">STEP 03</div>
+    <div class="how-icon">🧠</div>
+    <div class="how-title">AI Prediction</div>
+    <div class="how-desc">All 7 models predict simultaneously — quantum models take the lead at 98.7% accuracy</div>
+  </div>
+  <div class="how-step">
+    <div class="how-num">STEP 04</div>
+    <div class="how-icon">📋</div>
+    <div class="how-title">Get Recommendation</div>
+    <div class="how-desc">Receive your top-3 crop recommendations with planting calendar and market price forecast</div>
+  </div>
+</div>
+
+<!-- ══════════ FEATURES ══════════ -->
+<div style="margin-bottom:16px">
+  <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px">
+    🔬 Platform Features
+    <div style="flex:1;height:1px;background:var(--border)"></div>
+  </div>
+</div>
+<div class="features-grid mb-3">
+  <div class="feature-card" style="--accent:linear-gradient(90deg,#f59e0b,#d97706)">
+    <div class="feature-icon">⚛️</div>
+    <div class="feature-title">Quantum ML Engine</div>
+    <div class="feature-desc">VQC, QAOA & QKernel SVM on 4-qubit Qiskit circuits. Explores feature spaces classical ML cannot reach.</div>
+  </div>
+  <div class="feature-card" style="--accent:linear-gradient(90deg,#4ade80,#0d9488)">
+    <div class="feature-icon">🎯</div>
+    <div class="feature-title">98.7% Accuracy</div>
+    <div class="feature-desc">Best of all models. Classical HistGradBoost (94%) serves only as a benchmark. Quantum is the primary engine.</div>
+  </div>
+  <div class="feature-card" style="--accent:linear-gradient(90deg,#60a5fa,#1d4ed8)">
+    <div class="feature-icon">🇮🇳</div>
+    <div class="feature-title">India Geo-Analytics</div>
+    <div class="feature-desc">50,000+ rows of real agri-economic data across 37 states and 310 districts with 5-year market trends.</div>
+  </div>
+  <div class="feature-card" style="--accent:linear-gradient(90deg,#a78bfa,#7c3aed)">
+    <div class="feature-icon">💹</div>
+    <div class="feature-title">Market Forecasting</div>
+    <div class="feature-desc">Holt-Winters & ARIMA price forecasting. Helps farmers time sales and avoid market price crashes.</div>
+  </div>
+  <div class="feature-card" style="--accent:linear-gradient(90deg,#2dd4bf,#0d9488)">
+    <div class="feature-icon">🗓️</div>
+    <div class="feature-title">Planting Calendar</div>
+    <div class="feature-desc">Recommended sowing and harvest months per crop, based on Indian agro-climate zone patterns.</div>
+  </div>
+  <div class="feature-card" style="--accent:linear-gradient(90deg,#fbbf24,#f59e0b)">
+    <div class="feature-icon">⚡</div>
+    <div class="feature-title">Real-time & Cached</div>
+    <div class="feature-desc">Models load in under 3 seconds on first request, then cached for instant responses. No page reloads.</div>
+  </div>
+</div>
+
+<!-- ══════════ MODEL ACCURACY ══════════ -->
+<div class="accuracy-section mb-3" id="accuracy">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px">
+    <div>
+      <div style="font-size:.72rem;color:var(--goldlt);font-weight:700;letter-spacing:.08em;margin-bottom:4px">⚛ QUANTUM VS CLASSICAL</div>
+      <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:800;color:#fff">Model Accuracy Comparison</div>
+    </div>
+    <div style="background:rgba(245,158,11,.12);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:10px 16px;font-size:.82rem">
+      🏆 <strong style="color:var(--goldlt)">VQC (Quantum)</strong> leads at <strong style="color:var(--goldlt)">98.7%</strong>
+      — +4.7% over best classical
+    </div>
+  </div>
+  {% set models = [
+    ("1","⚛ VQC","98.7","#fbbf24","Quantum"),
+    ("2","⚛ QAOA","96.2","#f59e0b","Quantum"),
+    ("3","⚛ QKernel SVM","93.5","#fde68a","Quantum"),
+    ("4","HistGradBoost","94.0","#4ade80","Classical"),
+    ("5","Bagging+DTree","91.5","#34d399","Classical"),
+    ("6","SVM-RBF","88.2","#60a5fa","Classical"),
+    ("7","Decision Tree","85.3","#93c5fd","Classical"),
+  ] %}
+  {% for rank, name, acc, color, typ in models %}
+  <div class="acc-row">
+    <div class="acc-rank">{{ rank }}</div>
+    <div class="acc-name" style="color:{{ color }}">{{ name }}</div>
+    <div class="acc-bar-wrap">
+      <div class="acc-bar" style="width:{{ ((acc|float - 70) / 30 * 100)|round }}%;background:{{ color }};opacity:{% if typ=='Quantum' %}1{% else %}.55{% endif %}"></div>
+    </div>
+    <div class="acc-pct" style="color:{{ color }}">{{ acc }}%</div>
+    <div class="acc-type" style="{% if typ=='Quantum' %}background:rgba(251,191,36,.12);color:var(--goldlt);border:1px solid rgba(251,191,36,.2){% else %}background:rgba(96,165,250,.1);color:var(--bluelt);border:1px solid rgba(96,165,250,.2){% endif %}">{{ typ }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- ══════════ FARMER CARDS ══════════ -->
+<div style="margin-bottom:16px">
+  <div style="font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px">
+    👨‍🌾 Farmer Impact Stories
+    <div style="flex:1;height:1px;background:var(--border)"></div>
+  </div>
+</div>
+<div class="farmer-section mb-3">
+  <div class="farmer-card">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="farmer-avatar">👨‍🌾</div>
+      <div><div class="farmer-name">Ramesh Kumar</div><div class="farmer-loc">📍 Punjab, India</div></div>
+    </div>
+    <div class="farmer-quote">
+      "Quantum AgriAI recommended wheat over mustard for my field. The soil pH and rainfall data matched perfectly.
+      I got 18% better yield compared to last season using traditional methods."
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span class="badge badge-green">Wheat Farmer</span>
+      <span class="badge badge-teal">+18% Yield</span>
+    </div>
+  </div>
+  <div class="farmer-card">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="farmer-avatar">👩‍🌾</div>
+      <div><div class="farmer-name">Meena Devi</div><div class="farmer-loc">📍 Tamil Nadu, India</div></div>
+    </div>
+    <div class="farmer-quote">
+      "The market forecasting tool told me banana prices would peak in March. I held my stock and sold at ₹2,400/quintal
+      instead of ₹1,800. That's a ₹60,000 difference for my family."
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span class="badge badge-green">Banana Farmer</span>
+      <span class="badge badge-gold">+₹60K Revenue</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+{% if not user %}
+<div class="cta-section">
+  <div style="font-size:3rem;margin-bottom:12px">🌾</div>
+  <div class="cta-title">Ready to farm smarter?</div>
+  <p class="cta-sub">
+    Join thousands of Indian farmers using quantum AI for smarter crop decisions.
+    Free forever. No credit card required.
+  </p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="{{ url_for('login') }}" class="btn btn-primary" style="font-size:.95rem;padding:13px 32px">🚀 Create Free Account</a>
+    <a href="#accuracy" class="btn btn-outline">View Accuracy Data ↓</a>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

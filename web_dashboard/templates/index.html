@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quantum AgriAI v4</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Space Grotesk',sans-serif;background:#06090f;color:#e2e8f0;min-height:100vh}
+header{background:linear-gradient(135deg,#0d1117,#111827);border-bottom:1px solid #1e3a5f;padding:16px 36px;display:flex;align-items:center;gap:14px}
+header h1{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#60a5fa,#34d399,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+header p{color:#64748b;font-size:.82rem;margin-top:2px}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.72rem;font-weight:600;margin:1px}
+.b-rf{background:rgba(59,130,246,.15);color:#60a5fa}.b-gb{background:rgba(13,158,117,.15);color:#0D9E75}
+.b-vqc{background:rgba(245,158,11,.15);color:#F59E0B}.b-qaoa{background:rgba(232,89,60,.15);color:#E8593C}
+main{max-width:1060px;margin:28px auto;padding:0 18px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.stat-card{background:linear-gradient(135deg,#0f1829,#111827);border:1px solid #1e3a5f;border-radius:10px;padding:14px 16px;text-align:center}
+.stat-val{font-size:1.5rem;font-weight:700;color:#34d399}.stat-lbl{font-size:.75rem;color:#64748b;margin-top:3px}
+.card{background:linear-gradient(135deg,#0f1829,#111827);border:1px solid #1e3a5f;border-radius:12px;padding:20px;margin-bottom:16px}
+.card h2{font-size:.95rem;font-weight:600;color:#93c5fd;margin-bottom:14px;border-left:3px solid #3b82f6;padding-left:9px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+label{font-size:.79rem;color:#94a3b8;font-weight:500;display:flex;justify-content:space-between}
+label span{color:#60a5fa;font-weight:600}
+input[type=range]{width:100%;accent-color:#3b82f6;cursor:pointer}
+select{background:#0a0e1a;border:1px solid #1e3a5f;color:#e2e8f0;border-radius:7px;padding:7px 10px;font-size:.85rem;font-family:inherit;width:100%}
+.btn{background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff;border:none;border-radius:8px;padding:11px 22px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;width:100%;margin-top:6px;transition:opacity .15s}
+.btn:hover{opacity:.88}.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-outline{background:transparent;border:1px solid #1e3a5f;color:#94a3b8;border-radius:8px;padding:9px 18px;font-size:.85rem;cursor:pointer;font-family:inherit;width:100%;margin-top:6px;transition:all .15s}
+.btn-outline:hover{border-color:#3b82f6;color:#60a5fa}
+.result-area{display:none}
+.rec-card{background:linear-gradient(135deg,#0f2027,#1a3040);border:1px solid #1d4ed8;border-radius:8px;padding:12px 15px;margin:6px 0}
+.rec-crop{font-size:1.1rem;font-weight:700;color:#34d399}
+.rec-meta{font-size:.78rem;color:#94a3b8;margin-top:4px}
+.prog{height:5px;background:#1e293b;border-radius:4px;margin-top:6px;overflow:hidden}
+.prog-fill{height:5px;border-radius:4px;background:linear-gradient(90deg,#34d399,#3b82f6);transition:width .5s}
+.advice-text{font-size:.74rem;color:#64748b;margin-top:5px}
+.info-box{background:rgba(59,130,246,.08);border:1px solid #1d4ed8;border-radius:7px;padding:8px 12px;margin:7px 0;font-size:.82rem;color:#93c5fd}
+.err{background:rgba(239,68,68,.1);border:1px solid #ef4444;border-radius:7px;padding:9px;color:#fca5a5;margin:6px 0}
+.compare-box{background:#0a0e1a;border:1px solid #1e3a5f;border-radius:8px;padding:10px 12px}
+.compare-title{font-size:.8rem;font-weight:600;margin-bottom:5px}
+.compare-val{font-size:1.1rem;font-weight:700;color:#34d399}
+.state-crops{margin:10px 0}
+.state-crop-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #1e293b;font-size:.83rem}
+.loading{text-align:center;padding:16px;color:#64748b}
+footer{text-align:center;color:#334155;font-size:.76rem;padding:20px 0}
+@media(max-width:640px){.stats-grid{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+</style></head><body>
+<header>
+  <div>
+    <h1>Quantum AgriAI v4 - India Dashboard</h1>
+    <p>
+      <span class="badge b-rf">Random Forest</span><span class="badge b-gb">Gradient Boosting</span>
+      <span class="badge b-vqc">VQC</span><span class="badge b-qaoa">QAOA</span>
+      &nbsp;|&nbsp; 37 States &nbsp;|&nbsp; 310 Districts &nbsp;|&nbsp; 24 Crops
+    </p>
+  </div>
+</header>
+<main>
+  <!-- Stats -->
+  <div class="stats-grid" id="stats">
+    <div class="stat-card"><div class="stat-val">8,388</div><div class="stat-lbl">Dataset rows</div></div>
+    <div class="stat-card"><div class="stat-val">37</div><div class="stat-lbl">States / UTs</div></div>
+    <div class="stat-card"><div class="stat-val">310</div><div class="stat-lbl">Districts</div></div>
+    <div class="stat-card"><div class="stat-val">24</div><div class="stat-lbl">Crop classes</div></div>
+  </div>
+
+  <div class="grid2">
+    <!-- Left: prediction form -->
+    <div>
+      <div class="card">
+        <h2>Field Conditions</h2>
+        <div class="grid2">
+          <div class="form-group"><label>Nitrogen <span id="nv">80</span></label>
+            <input type="range" id="nitrogen" min="0" max="250" value="80" oninput="document.getElementById('nv').textContent=this.value"></div>
+          <div class="form-group"><label>Phosphorus <span id="pv">40</span></label>
+            <input type="range" id="phosphorus" min="0" max="250" value="40" oninput="document.getElementById('pv').textContent=this.value"></div>
+          <div class="form-group"><label>Potassium <span id="kv">40</span></label>
+            <input type="range" id="potassium" min="0" max="300" value="40" oninput="document.getElementById('kv').textContent=this.value"></div>
+          <div class="form-group"><label>Temperature (C) <span id="tv">26</span></label>
+            <input type="range" id="temperature" min="5" max="48" value="26" oninput="document.getElementById('tv').textContent=this.value"></div>
+          <div class="form-group"><label>Humidity (%) <span id="hv">72</span></label>
+            <input type="range" id="humidity" min="18" max="99" value="72" oninput="document.getElementById('hv').textContent=this.value"></div>
+          <div class="form-group"><label>pH <span id="phv">6.5</span></label>
+            <input type="range" id="ph_value" min="3.5" max="9.5" value="6.5" step="0.1" oninput="document.getElementById('phv').textContent=(+this.value).toFixed(1)"></div>
+        </div>
+        <div class="form-group"><label>Rainfall (mm) <span id="rv">700</span></label>
+          <input type="range" id="rainfall" min="10" max="4500" value="700" oninput="document.getElementById('rv').textContent=this.value"></div>
+        <button class="btn" id="btn" onclick="predict()">Get Crop Recommendation</button>
+      </div>
+
+      <div class="card">
+        <h2>Explore by State / District</h2>
+        <select id="sel-state" onchange="loadStateCrops()">
+          <option value="">-- Select a State --</option>
+        </select>
+        <select id="sel-district" onchange="loadDistrictCrops()" style="margin-top:8px;width:100%;padding:8px;background:#0f1829;color:#94a3b8;border:1px solid #1e293b;border-radius:6px;display:none;">
+          <option value="">-- Select a District --</option>
+        </select>
+        <div id="state-result" class="state-crops"></div>
+      </div>
+    </div>
+
+    <!-- Right: results -->
+    <div>
+      <div class="result-area" id="result">
+        <div class="card" id="result-card">
+          <h2 id="result-title">Recommendations</h2>
+          <div id="result-content"></div>
+        </div>
+      </div>
+      <div class="card" id="algo-card">
+        <h2>Algorithm Comparison</h2>
+        <div class="grid2">
+          <div class="compare-box"><div class="compare-title" style="color:#60a5fa">Random Forest</div>
+            <div style="font-size:.76rem;color:#94a3b8;line-height:1.6">T=200 trees, bagging<br>Majority vote prediction<br>Built-in feature importance</div></div>
+          <div class="compare-box"><div class="compare-title" style="color:#0D9E75">Gradient Boosting</div>
+            <div style="font-size:.76rem;color:#94a3b8;line-height:1.6">Sequential residual fitting<br>F_m = F_{m-1} + lr*h_m<br>Highest tabular accuracy</div></div>
+          <div class="compare-box"><div class="compare-title" style="color:#F59E0B">VQC (Qiskit 1.x)</div>
+            <div style="font-size:.76rem;color:#94a3b8;line-height:1.6">ZZFeatureMap + RealAmplitudes<br>COBYLA optimiser, 4 qubits<br>StatevectorSampler</div></div>
+          <div class="compare-box"><div class="compare-title" style="color:#E8593C">QAOA</div>
+            <div style="font-size:.76rem;color:#94a3b8;line-height:1.6">Ising Hamiltonian<br>p=2 layers U_C + U_B<br>Farhi et al. (2014)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>Quantum AgriAI v4 &nbsp;|&nbsp; India State/District Dataset &nbsp;|&nbsp; RAJA S &nbsp;|&nbsp; ME CSE</footer>
+
+<script>
+async function loadStates(){
+  try{
+    const r=await fetch('/api/states'); const d=await r.json();
+    const sel=document.getElementById('sel-state');
+    d.states.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;sel.appendChild(o);});
+  }catch(e){}
+}
+
+async function loadStateCrops(){
+  const state=document.getElementById('sel-state').value;
+  const div=document.getElementById('state-result');
+  const distSel=document.getElementById('sel-district');
+  distSel.style.display='none';
+  distSel.innerHTML='<option value="">-- Select a District --</option>';
+  if(!state){div.innerHTML='';return;}
+  div.innerHTML='<div class="loading">Loading...</div>';
+  try{
+    // Load state crop data
+    const r=await fetch('/api/state-crops/'+encodeURIComponent(state));
+    const d=await r.json();
+    if(d.error){div.innerHTML=`<div class="err">${d.error}</div>`;return;}
+    let html=`<div style="font-size:.8rem;color:#64748b;margin:6px 0">${d.records} records in ${state}</div>`;
+    const crops=Object.entries(d.crop_counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
+    crops.forEach(([crop,cnt])=>{
+      const yield_=d.avg_yield_kg_ha[crop]||'-';
+      html+=`<div class="state-crop-row"><span>${crop}</span><span style="color:#34d399">${cnt} records</span><span style="color:#f59e0b;font-size:.74rem">${yield_} kg/ha</span></div>`;
+    });
+    div.innerHTML=html;
+    // Load districts for this state
+    const dr=await fetch('/api/districts/'+encodeURIComponent(state));
+    const dd=await dr.json();
+    if(!dd.error && dd.districts && dd.districts.length>0){
+      dd.districts.forEach(dist=>{
+        const o=document.createElement('option');o.value=dist;o.textContent=dist;distSel.appendChild(o);
+      });
+      distSel.style.display='block';
+    }
+  }catch(e){div.innerHTML=`<div class="err">Error: ${e.message}</div>`;}
+}
+
+async function loadDistrictCrops(){
+  const state=document.getElementById('sel-state').value;
+  const district=document.getElementById('sel-district').value;
+  const div=document.getElementById('state-result');
+  if(!district){loadStateCrops();return;}
+  div.innerHTML='<div class="loading">Loading...</div>';
+  try{
+    // Filter state-crops by district via cities endpoint
+    const r=await fetch('/api/cities/'+encodeURIComponent(district));
+    const d=await r.json();
+    if(d.error){div.innerHTML=`<div class="err">${d.error}</div>`;return;}
+    let html=`<div style="font-size:.8rem;color:#64748b;margin:6px 0">${d.records} records in ${district}</div>`;
+    if(d.seasons&&d.seasons.length)
+      html+=`<div style="font-size:.75rem;color:#60a5fa;margin:4px 0">Seasons: ${d.seasons.join(', ')}</div>`;
+    d.crops.forEach(crop=>{
+      html+=`<div class="state-crop-row"><span>${crop}</span><span style="color:#34d399">✓ Grown here</span></div>`;
+    });
+    div.innerHTML=html;
+  }catch(e){div.innerHTML=`<div class="err">Error: ${e.message}</div>`;}
+}
+
+async function predict(){
+  const btn=document.getElementById('btn');
+  btn.disabled=true;
+  const rd=document.getElementById('result');
+  const rc=document.getElementById('result-content');
+  rd.style.display='block';
+  rc.innerHTML='<div class="loading">Analysing field conditions...</div>';
+  const body={
+    nitrogen:+document.getElementById('nitrogen').value,
+    phosphorus:+document.getElementById('phosphorus').value,
+    potassium:+document.getElementById('potassium').value,
+    temperature:+document.getElementById('temperature').value,
+    humidity:+document.getElementById('humidity').value,
+    ph_value:+document.getElementById('ph_value').value,
+    rainfall:+document.getElementById('rainfall').value
+  };
+  try{
+    const r=await fetch('/api/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await r.json(); btn.disabled=false;
+    if(d.error){rc.innerHTML=`<div class="err">${d.error}</div>`;return;}
+    const rfAcc=d.rf_accuracy?`RF: ${(d.rf_accuracy*100).toFixed(1)}%`:'';
+    const gbAcc=d.gb_accuracy?`GB: ${(d.gb_accuracy*100).toFixed(1)}%`:'';
+    document.getElementById('result-title').textContent=`Recommendations  (${rfAcc}  ${gbAcc})`;
+    let html=`<div class="grid2" style="margin-bottom:10px">
+      <div class="compare-box"><div class="compare-title" style="color:#60a5fa">Random Forest</div>
+        <div class="compare-val">${d.random_forest?.best_crop||'N/A'}</div></div>
+      <div class="compare-box"><div class="compare-title" style="color:#0D9E75">Gradient Boosting</div>
+        <div class="compare-val">${d.gradient_boosting?.best_crop||'N/A'}</div></div>
+    </div><div style="font-size:.83rem;color:#93c5fd;margin:8px 0 4px">Blended recommendations:</div>`;
+    (d.recommendations||[]).forEach((r,i)=>{
+      const pct=Math.round(r.blended_score*100);
+      html+=`<div class="rec-card">
+        <div class="rec-crop">${i===0?'[1] ':'[+] '}${r.crop}</div>
+        <div class="rec-meta">Blended: <strong>${(r.blended_score*100).toFixed(1)}%</strong> | ML: ${(r.ml_confidence*100).toFixed(1)}% | Rule: ${r.rule_score}/100</div>
+        <div class="prog"><div class="prog-fill" style="width:${pct}%"></div></div>
+        <div class="advice-text">${(r.advice||[]).slice(0,2).join(' . ')}</div>
+      </div>`;
+    });
+    if(d.planting) html+=`<div class="info-box">Planting - <b>${d.blended_best}</b>: Sow: ${d.planting.sow} | Harvest: ${d.planting.harvest}</div>`;
+    rc.innerHTML=html;
+  }catch(e){btn.disabled=false;rc.innerHTML=`<div class="err">Error: ${e.message}</div>`;}
+}
+
+loadStates();
+</script></body></html>

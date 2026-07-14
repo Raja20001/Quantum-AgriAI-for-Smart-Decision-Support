@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}Profile — Quantum AgriAI{% endblock %}
+{% block extra_css %}
+<style>
+.profile-hero{
+  background:linear-gradient(135deg,rgba(22,163,74,.1),rgba(13,148,136,.08));
+  border:1px solid rgba(74,222,128,.15);border-radius:20px;
+  padding:32px;margin-bottom:24px;
+  display:flex;align-items:center;gap:24px;
+}
+.profile-avatar-lg{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,#16a34a,#1d4ed8);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;font-weight:800;color:#fff;
+  box-shadow:0 0 24px rgba(22,163,74,.4);flex-shrink:0;
+}
+.profile-name{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:4px}
+.profile-email{font-size:.85rem;color:var(--muted)}
+.profile-joined{font-size:.75rem;color:var(--dim);margin-top:4px}
+.model-bar{
+  display:flex;align-items:center;gap:12px;padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.model-bar:last-child{border-bottom:none}
+.model-bar-name{font-size:.85rem;font-weight:600;width:180px;flex-shrink:0}
+.model-bar-track{flex:1;background:var(--bg3);border-radius:6px;height:8px;overflow:hidden}
+.model-bar-fill{height:8px;border-radius:6px}
+.model-bar-pct{font-family:var(--font-mono);font-size:.82rem;font-weight:700;width:48px;text-align:right;flex-shrink:0}
+.model-bar-tag{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;flex-shrink:0}
+.info-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);
+  font-size:.875rem;
+}
+.info-row:last-child{border-bottom:none}
+.info-label{color:var(--muted);font-size:.8rem}
+.info-value{color:var(--text);font-weight:600;font-family:var(--font-mono);font-size:.82rem}
+.tech-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:8px;padding:7px 12px;
+  font-size:.78rem;color:var(--muted);margin:4px;
+  transition:all .2s;cursor:default;
+}
+.tech-chip:hover{border-color:rgba(74,222,128,.3);color:var(--greenlt)}
+</style>
+{% endblock %}
+{% block content %}
+
+<!-- Profile Hero -->
+<div class="profile-hero mb-3">
+  <div class="profile-avatar-lg">{{ user.name[0]|upper }}</div>
+  <div>
+    <div class="profile-name">{{ user.name }}</div>
+    <div class="profile-email">📧 {{ email }}</div>
+    <div class="profile-joined">🗓 Joined {{ user.joined }}</div>
+    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+      <span class="badge badge-green">⚛ Quantum Access</span>
+      <span class="badge badge-teal">🇮🇳 India Analytics</span>
+      <span class="badge badge-gold">🏆 VQC 98.7%</span>
+    </div>
+  </div>
+</div>
+
+<div class="grid2 mb-3">
+
+  <!-- Model Performance -->
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px">
+      <span style="font-size:1.1rem">⚛</span>
+      <div class="card-title" style="margin-bottom:0">Quantum vs Classical Models</div>
+    </div>
+    <div style="background:rgba(245,158,11,.08);border:1px solid rgba(251,191,36,.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:.8rem">
+      <strong style="color:var(--goldlt)">🏆 Best Accuracy: VQC (Quantum) — 98.7%</strong><br>
+      <span style="color:var(--muted)">Outperforms all classical models by +4.7 percentage points</span>
+    </div>
+    {% set models = [
+      ("⚛ VQC (PRIMARY)","98.7","#fbbf24","Quantum",True),
+      ("⚛ QKernel SVM","96.2","#f59e0b","Quantum",True),
+      ("⚛ QAOA","93.5","#fde68a","Quantum",True),
+      ("HistGradBoost","94.0","#4ade80","Classical",False),
+      ("Bagging+DTree","91.5","#34d399","Classical",False),
+      ("SVM-RBF","88.2","#60a5fa","Classical",False),
+      ("Decision Tree","85.3","#93c5fd","Classical",False),
+    ] %}
+    {% for name, acc, color, typ, is_q in models %}
+    <div class="model-bar">
+      <div class="model-bar-name" style="color:{{ color }}">{{ name }}</div>
+      <div class="model-bar-track">
+        <div class="model-bar-fill" style="width:{{ ((acc|float-70)/30*100)|round }}%;background:{{ color }};opacity:{% if is_q %}1{% else %}.5{% endif %}"></div>
+      </div>
+      <div class="model-bar-pct" style="color:{{ color }}">{{ acc }}%</div>
+      <div class="model-bar-tag" style="{% if is_q %}background:rgba(251,191,36,.1);color:var(--goldlt);border:1px solid rgba(251,191,36,.2){% else %}background:rgba(96,165,250,.1);color:var(--bluelt);border:1px solid rgba(96,165,250,.2){% endif %}">{{ typ }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Dataset & Tech Stack -->
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div class="card">
+      <div class="card-title">📊 Dataset Overview</div>
+      <div class="info-row"><span class="info-label">Total Records</span><span class="info-value" style="color:var(--greenlt)">54,000</span></div>
+      <div class="info-row"><span class="info-label">Crop Classes</span><span class="info-value" style="color:var(--goldlt)">27</span></div>
+      <div class="info-row"><span class="info-label">Training Set</span><span class="info-value">43,200 (80%)</span></div>
+      <div class="info-row"><span class="info-label">Test Set</span><span class="info-value">10,800 (20%)</span></div>
+      <div class="info-row"><span class="info-label">Indian States</span><span class="info-value" style="color:var(--bluelt)">37</span></div>
+      <div class="info-row"><span class="info-label">Districts</span><span class="info-value">310</span></div>
+      <div class="info-row"><span class="info-label">Geo-Analytics Rows</span><span class="info-value">50,000+</span></div>
+      <div class="info-row"><span class="info-label">Data Source</span><span class="info-value">ICAR Calibrated</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔧 Technology Stack</div>
+      <div style="flex-wrap:wrap;display:flex">
+        <span class="tech-chip">⚛ Qiskit 2.x</span>
+        <span class="tech-chip">🐍 Python 3.10+</span>
+        <span class="tech-chip">🤖 scikit-learn</span>
+        <span class="tech-chip">🌐 Flask 3.0</span>
+        <span class="tech-chip">📊 Streamlit</span>
+        <span class="tech-chip">📈 Plotly</span>
+        <span class="tech-chip">🔢 NumPy</span>
+        <span class="tech-chip">🐼 Pandas</span>
+        <span class="tech-chip">🧮 AerSimulator</span>
+        <span class="tech-chip">💠 ZZFeatureMap</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Input Features -->
+<div class="card mb-3">
+  <div class="card-title">🌱 Input Features — Field Parameters</div>
+  <div class="grid3">
+    {% set features = [
+      ("🧪","Nitrogen (N)","Soil nitrogen ratio","0–140 kg/ha"),
+      ("🧪","Phosphorus (P)","Soil phosphorus ratio","5–145 kg/ha"),
+      ("🧪","Potassium (K)","Soil potassium ratio","5–205 kg/ha"),
+      ("🌡️","Temperature","Ambient air temp","8–44 °C"),
+      ("💧","Humidity","Relative humidity","14–100%"),
+      ("⚗️","pH Value","Soil acidity","3.5–9.9"),
+      ("🌧️","Rainfall","Annual rainfall","20–3000 mm"),
+    ] %}
+    {% for icon, name, desc, rng in features %}
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px">
+      <div style="font-size:1.3rem;margin-bottom:6px">{{ icon }}</div>
+      <div style="font-size:.85rem;font-weight:700;color:var(--text);margin-bottom:2px">{{ name }}</div>
+      <div style="font-size:.75rem;color:var(--muted);margin-bottom:4px">{{ desc }}</div>
+      <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--greenlt)">{{ rng }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div style="text-align:center">
+  <a href="{{ url_for('prediction') }}" class="btn btn-primary" style="font-size:.95rem;padding:13px 32px">
+    ⚛ Launch Quantum Prediction →
+  </a>
+</div>
+
+{% endblock %}

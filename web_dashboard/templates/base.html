@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Quantum AgriAI{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#03080f;--bg2:#060f1c;--bg3:#091525;--bg4:#0c1d33;
+  --border:#12263f;--border2:#1a3555;
+  --green:#16a34a;--greenlt:#4ade80;--greenbg:rgba(22,163,74,.12);
+  --teal:#0d9488;--teallt:#2dd4bf;
+  --blue:#1d4ed8;--bluelt:#60a5fa;--bluebg:rgba(29,78,216,.12);
+  --gold:#d97706;--goldlt:#fbbf24;--goldbg:rgba(217,119,6,.12);
+  --amber:#f59e0b;
+  --red:#dc2626;--redbg:rgba(220,38,38,.1);
+  --text:#e8f0fe;--muted:#8fa3bc;--dim:#3d5470;
+  --radius:12px;--radius-sm:8px;--radius-lg:18px;
+  --font-display:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+nav{background:rgba(3,8,15,.9);border-bottom:1px solid var(--border2);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#16a34a,#0d9488,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 0 16px rgba(22,163,74,.4)}
+.nav-brand-text{font-family:var(--font-display);font-size:1.12rem;font-weight:700;background:linear-gradient(135deg,#4ade80,#2dd4bf,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-brand-sub{font-size:.6rem;color:var(--muted);font-weight:400;display:block;margin-top:-3px;letter-spacing:.05em}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{text-decoration:none;color:var(--muted);font-size:.855rem;font-weight:500;padding:7px 16px;border-radius:8px;transition:all .2s}
+.nav-link:hover{background:rgba(255,255,255,.06);color:var(--text)}
+.nav-link.active{background:var(--bluebg);color:var(--bluelt)}
+.nav-pill{padding:7px 18px;border-radius:30px;font-size:.83rem;font-weight:600;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.nav-pill-green{background:rgba(22,163,74,.15);color:var(--greenlt);border:1px solid rgba(74,222,128,.2)}
+.nav-pill-green:hover{background:rgba(22,163,74,.28)}
+.nav-pill-red{background:rgba(220,38,38,.12);color:#fca5a5;border:1px solid rgba(220,38,38,.2)}
+.nav-pill-red:hover{background:rgba(220,38,38,.22)}
+.nav-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:#fff}
+.flashes{padding:0 40px;margin:16px auto;width:100%;max-width:1200px;position:relative;z-index:1}
+.flash{padding:12px 18px;border-radius:var(--radius-sm);font-size:.875rem;margin-bottom:8px;display:flex;align-items:center;gap:10px;animation:slideIn .3s ease}
+@keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.flash.success{background:var(--greenbg);border:1px solid rgba(74,222,128,.2);color:var(--greenlt)}
+.flash.error{background:var(--redbg);border:1px solid rgba(220,38,38,.25);color:#fca5a5}
+.flash.warning{background:var(--goldbg);border:1px solid rgba(251,191,36,.2);color:#fde68a}
+.flash.info{background:var(--bluebg);border:1px solid rgba(96,165,250,.2);color:var(--bluelt)}
+main{flex:1;max-width:1200px;width:100%;margin:0 auto;padding:32px 24px;position:relative;z-index:1}
+.card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:24px}
+.card-title{font-size:.75rem;font-weight:700;color:var(--bluelt);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:30px;padding:11px 26px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .22s;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,#16a34a,#0d9488);color:#fff;box-shadow:0 4px 14px rgba(22,163,74,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,163,74,.4)}
+.btn-blue{background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff;box-shadow:0 4px 14px rgba(29,78,216,.3)}
+.btn-blue:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid var(--border2);color:var(--muted);border-radius:30px;padding:10px 22px;font-size:.85rem;font-weight:500;cursor:pointer;font-family:var(--font-body);transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-outline:hover{border-color:var(--greenlt);color:var(--greenlt)}
+.btn-full{width:100%}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
+label{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.03em}
+input[type=text],input[type=email],input[type=password],input[type=number],select{background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:var(--radius-sm);padding:11px 15px;font-size:.9rem;font-family:var(--font-body);transition:border-color .2s,box-shadow .2s;width:100%}
+input:focus,select:focus{outline:none;border-color:var(--greenlt);box-shadow:0 0 0 3px rgba(74,222,128,.12)}
+input[type=range]{width:100%;accent-color:var(--greenlt);cursor:pointer}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+.badge-green{background:var(--greenbg);color:var(--greenlt);border:1px solid rgba(74,222,128,.2)}
+.badge-blue{background:var(--bluebg);color:var(--bluelt);border:1px solid rgba(96,165,250,.2)}
+.badge-gold{background:var(--goldbg);color:var(--goldlt);border:1px solid rgba(251,191,36,.2)}
+.badge-teal{background:rgba(13,148,136,.12);color:var(--teallt);border:1px solid rgba(45,212,191,.2)}
+footer{text-align:center;color:var(--dim);font-size:.76rem;padding:24px;border-top:1px solid var(--border);position:relative;z-index:1}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--greenlt)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mt-1{margin-top:6px}.mt-2{margin-top:14px}.mt-3{margin-top:24px}
+.mb-1{margin-bottom:6px}.mb-2{margin-bottom:14px}.mb-3{margin-bottom:24px}
+.divider{height:1px;background:var(--border);margin:24px 0}
+.text-green{color:var(--greenlt)}.text-gold{color:var(--goldlt)}.text-blue{color:var(--bluelt)}.text-muted{color:var(--muted)}
+.flex{display:flex}.items-center{align-items:center}.gap-2{gap:10px}.gap-3{gap:18px}
+@media(max-width:768px){nav{padding:0 16px}main{padding:16px}.flashes{padding:0 16px}.grid2,.grid3,.grid4{grid-template-columns:1fr}.nav-brand-sub{display:none}}
+</style>
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('home') }}" class="nav-brand">
+    <div class="nav-logo">🌾</div>
+    <div>
+      <span class="nav-brand-text">Quantum AgriAI</span>
+      <span class="nav-brand-sub">⚛ HYBRID QUANTUM-CLASSICAL AI</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="{{ url_for('home') }}" class="nav-link {% if request.endpoint=='home' %}active{% endif %}">Home</a>
+    {% if user %}
+      <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint=='about' %}active{% endif %}">Profile</a>
+      <a href="{{ url_for('prediction') }}" class="nav-link {% if request.endpoint=='prediction' %}active{% endif %}">⚛ Predict</a>
+      <div class="flex items-center gap-2" style="margin-left:8px">
+        <div class="nav-avatar">{{ user.name[0]|upper }}</div>
+        <span style="font-size:.82rem;color:var(--muted)">{{ user.name.split()[0] }}</span>
+        <a href="{{ url_for('logout') }}" class="nav-pill nav-pill-red">Logout</a>
+      </div>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="nav-pill nav-pill-green">🚀 Get Started</a>
+    {% endif %}
+  </div>
+</nav>
+<div class="flashes">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">
+        {% if category=='success' %}✅{% elif category=='error' %}❌{% elif category=='warning' %}⚠️{% else %}ℹ️{% endif %}
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endwith %}
+</div>
+<main>{% block content %}{% endblock %}</main>
+<footer>
+  <div style="margin-bottom:6px;font-size:.82rem;color:var(--muted)">
+    <span style="color:var(--greenlt);font-weight:700">⚛ Quantum AgriAI v6</span>
+    &nbsp;·&nbsp; Hybrid Quantum-Classical Precision Agriculture
+    &nbsp;·&nbsp; <a href="#">Anna University Project 2025</a>
+  </div>
+  VQC 98.7% &nbsp;·&nbsp; QAOA 96.2% &nbsp;·&nbsp; QKernel 93.5% &nbsp;·&nbsp; 54,000 Crop Records &nbsp;·&nbsp; 27 Crops &nbsp;·&nbsp; 37 States &nbsp;·&nbsp; 50,000+ India Records
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>
