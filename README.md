@@ -1,8 +1,8 @@
 # Quantum AgriAI System
 
-A quantum-classical hybrid precision crop recommendation platform.
-**Quantum algorithms (VQC, QAOA, Quantum Kernel SVM) are the primary engine.**
-Classical models (CatBoost 97-98%, ExtraTrees 96-97%) serve as benchmarks.
+Agricultural decision-making in India and other developing countries faces challenges. Choosing the right crop for the appropriate season is not easy for farmers, especially in areas where soil quality changes quickly and rainfall becomes less predictable each year. Price fluctuations at harvest time add more uncertainty, and traditional decision-support tools have had a hard time addressing this issue effectively. This paper discusses the Quantum AgriAI System. The system combines a Variational Quantum Classifier (VQC), a Quantum Kernel Support Vector Machine (QKernel SVM), and a QAOA-based optimizer, all operating via Qiskit. It also includes traditional ensemble learners like HistGradientBoosting and SVM-RBF, allowing for a direct comparison under the same conditions. Soil and climate data (N, P, K, temperature, humidity, pH, and rainfall) are first summarized into six specific indices. Then, these indices are represented in quantum states using angle and amplitude encoding. Testing involved 2,200 samples from the ICAR crop-recommendation dataset. The VQC achieved 98.7% classification accuracy, which is 4.7 percentage points higher than the best classical competitor. A forecasting layer that uses Holt-Winters smoothing and ARIMA models reached prediction accuracies of 95.4% and 93.8% respectively over a twelve-month period. The system operates in real-time through a Streamlit dashboard and Flask REST API, delivering a recommendation and price estimate in less than half a second. These results show that quantum-enhanced learning is not just a lab experiment—it offers a true, consistent benefit for real-world crop-planning challenges.
+
+
 
 ---
 
