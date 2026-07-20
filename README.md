@@ -33,6 +33,37 @@ Then open http://localhost:8501 in your browser.
 python main_pipeline.py
 ```
 
+## 🚀 Mini Project
+
+### 📦 Install Required Libraries
+
+```bash
+# Install required Python packages
+pip install pandas numpy scikit-learn streamlit matplotlib qiskit qiskit-machine-learning
+
+# Or install all dependencies from requirements.txt
+pip install -r requirements.txt
+```
+
+### ▶️ Run the Project
+
+```bash
+python main_pipeline.py
+```
+
+### 📊 Launch the Streamlit Dashboard
+
+```bash
+streamlit run streamlit_dashboard/dashboard.py
+```
+
+### 🌐 Run the Web Dashboard
+
+```bash
+python web_dashboard/app.py
+```
+
+
 ---
 
 ## Project Structure
