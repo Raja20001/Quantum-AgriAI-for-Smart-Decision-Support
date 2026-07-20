@@ -50,24 +50,12 @@ pip install -r requirements.txt
 ```bash
 python main_pipeline.py
 ```
-(./images/img_1.png)
-(./images/img_2.png)
-(./images/img_3.png)
 ## 📊 Execution Results
 
-### Step 3A: Quantum Models
-
-(img_1.png)
-
-### Step 3B: Classical Models
-
 ![Classical Models](./images/img_1.png)
-
-### Pipeline Complete
-
-![Pipeline Complete](images/pipeline_complete.png)
-
-
+![Classical Models](./images/img_2.png)
+![Classical Models](./images/img_3.png)
+![Classical Models](./images/img_4.png)
 
 
 ### 📊 Launch the Streamlit Dashboard
@@ -75,14 +63,14 @@ python main_pipeline.py
 ```bash
 streamlit run streamlit_dashboard/dashboard.py
 ```
-
+![streamlit_dashboard](./images/streamlit.png)
 ### 🌐 Run the Web Dashboard
 
 ```bash
 python web_dashboard/app.py
 ```
 
-
+![web_dashboard](./images/python.png)
 ---
 
 ## Project Structure
