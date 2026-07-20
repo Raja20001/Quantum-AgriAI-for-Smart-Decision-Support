@@ -61,7 +61,7 @@ python main_pipeline.py
 
 ### Step 3B: Classical Models
 
-![Classical Models](images/classical_models.png)
+![Classical Models](./images/img_1.png)
 
 ### Pipeline Complete
 
