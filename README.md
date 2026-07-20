@@ -50,11 +50,14 @@ pip install -r requirements.txt
 ```bash
 python main_pipeline.py
 ```
+(./images/img_1.png)
+(./images/img_2.png)
+(./images/img_3.png)
 ## 📊 Execution Results
 
 ### Step 3A: Quantum Models
 
-![Quantum Models](img_1.png)
+(img_1.png)
 
 ### Step 3B: Classical Models
 
