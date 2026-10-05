@@ -21,7 +21,7 @@ This document provides step-by-step instructions to host and deploy the **Quantu
 
 ### Option A: 3-Click Setup via GitHub Repository Settings
 1. Go to your GitHub repository:
-   [https://github.com/Raja20001/Quantum-AgriAI-for-Smart-Decision-Support](https://github.com/Raja20001/Quantum-AgriAI-for-Smart-Decision-Support)
+   [https://github.com/solairaja13/Quantum-AgriAI-for-Smart-Decision-Support](https://github.com/solairaja13/Quantum-AgriAI-for-Smart-Decision-Support)
 2. Click on **Settings** (top navigation tab).
 3. In the left sidebar, click on **Pages** (under the "Code and automation" section).
 4. Under **Build and deployment**:
@@ -31,7 +31,7 @@ This document provides step-by-step instructions to host and deploy the **Quantu
 5. Click **Save**.
 6. Wait 1–2 minutes. Your website will be live at:
    ```
-   https://raja20001.github.io/Quantum-AgriAI-for-Smart-Decision-Support/
+   https://solairaja13.github.io/Quantum-AgriAI-for-Smart-Decision-Support/
    ```
 
 ---

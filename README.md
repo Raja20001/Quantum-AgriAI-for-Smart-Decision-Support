@@ -1,8 +1,8 @@
 # Quantum AgriAI System
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-emerald?style=for-the-badge&logo=github)](https://raja20001.github.io/Quantum-AgriAI-for-Smart-Decision-Support/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-emerald?style=for-the-badge&logo=github)](https://solairaja13.github.io/Quantum-AgriAI-for-Smart-Decision-Support/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)](https://vercel.com/)
-[![Accuracy](https://img.shields.io/badge/VQC%20Accuracy-98.7%25-gold?style=for-the-badge)](https://github.com/Raja20001/Quantum-AgriAI-for-Smart-Decision-Support)
+[![Accuracy](https://img.shields.io/badge/VQC%20Accuracy-98.7%25-gold?style=for-the-badge)](https://github.com/solairaja13/Quantum-AgriAI-for-Smart-Decision-Support)
 
 Agricultural decision-making in India and other developing countries faces challenges. Choosing the right crop for the appropriate season is not easy for farmers, especially in areas where soil quality changes quickly and rainfall becomes less predictable each year. Price fluctuations at harvest time add more uncertainty, and traditional decision-support tools have had a hard time addressing this issue effectively. 
 
@@ -18,7 +18,7 @@ This research introduces the **Quantum AgriAI System**. The system combines a Va
 
 The web dashboard is fully configured for public web deployment with zero dependencies:
 
-- **Live GitHub Pages URL:** `https://raja20001.github.io/Quantum-AgriAI-for-Smart-Decision-Support/`
+- **Live GitHub Pages URL:** `https://solairaja13.github.io/Quantum-AgriAI-for-Smart-Decision-Support/`
 - **Deployment Guide:** See [**`DEPLOYMENT.md`**](DEPLOYMENT.md) for 1-click step-by-step instructions for GitHub Pages and Vercel.
 - **Local Web Preview:**
   ```bash
