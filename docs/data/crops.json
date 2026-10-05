@@ -1,0 +1,1163 @@
+{
+  "Apple": {
+    "name": "Apple",
+    "emoji": "\ud83c\udf4e",
+    "price_inr_q": 5000,
+    "ideal_temp": [
+      5,
+      25
+    ],
+    "ideal_humidity": [
+      50,
+      75
+    ],
+    "ideal_rainfall": [
+      50,
+      150
+    ],
+    "ideal_ph": [
+      5.5,
+      6.5
+    ],
+    "sow": "January-February",
+    "harvest": "August-October",
+    "season": "Perennial",
+    "duration_days": "140-170",
+    "means": {
+      "Nitrogen": 21.01,
+      "Phosphorus": 133.55,
+      "Potassium": 199.06,
+      "Temperature": 21.77,
+      "Humidity": 92.03,
+      "pH_Value": 5.7,
+      "Rainfall": 113.16
+    },
+    "stds": {
+      "Nitrogen": 4.05,
+      "Phosphorus": 12.15,
+      "Potassium": 17.91,
+      "Temperature": 2.02,
+      "Humidity": 3.06,
+      "pH_Value": 0.3,
+      "Rainfall": 14.13
+    }
+  },
+  "Banana": {
+    "name": "Banana",
+    "emoji": "\ud83c\udf4c",
+    "price_inr_q": 1200,
+    "ideal_temp": [
+      20,
+      35
+    ],
+    "ideal_humidity": [
+      60,
+      85
+    ],
+    "ideal_rainfall": [
+      100,
+      200
+    ],
+    "ideal_ph": [
+      5.5,
+      7.0
+    ],
+    "sow": "June-July",
+    "harvest": "Year-round",
+    "season": "Annual",
+    "duration_days": "300-365",
+    "means": {
+      "Nitrogen": 100.03,
+      "Phosphorus": 81.86,
+      "Potassium": 49.99,
+      "Temperature": 25.93,
+      "Humidity": 75.04,
+      "pH_Value": 6.0,
+      "Rainfall": 105.16
+    },
+    "stds": {
+      "Nitrogen": 10.85,
+      "Phosphorus": 9.21,
+      "Potassium": 6.15,
+      "Temperature": 1.49,
+      "Humidity": 2.99,
+      "pH_Value": 0.3,
+      "Rainfall": 14.06
+    }
+  },
+  "Blackgram": {
+    "name": "Blackgram",
+    "emoji": "\ud83e\uded8",
+    "price_inr_q": 6950,
+    "ideal_temp": [
+      25,
+      40
+    ],
+    "ideal_humidity": [
+      55,
+      80
+    ],
+    "ideal_rainfall": [
+      40,
+      100
+    ],
+    "ideal_ph": [
+      5.5,
+      7.0
+    ],
+    "sow": "June-July",
+    "harvest": "September-October",
+    "season": "Kharif",
+    "duration_days": "70-85",
+    "means": {
+      "Nitrogen": 40.31,
+      "Phosphorus": 66.85,
+      "Potassium": 18.92,
+      "Temperature": 29.79,
+      "Humidity": 68.1,
+      "pH_Value": 6.69,
+      "Rainfall": 70.17
+    },
+    "stds": {
+      "Nitrogen": 6.05,
+      "Phosphorus": 8.07,
+      "Potassium": 3.94,
+      "Temperature": 2.5,
+      "Humidity": 3.94,
+      "pH_Value": 0.3,
+      "Rainfall": 9.97
+    }
+  },
+  "ChickPea": {
+    "name": "ChickPea",
+    "emoji": "\ud83c\udf31",
+    "price_inr_q": 5230,
+    "ideal_temp": [
+      10,
+      25
+    ],
+    "ideal_humidity": [
+      40,
+      70
+    ],
+    "ideal_rainfall": [
+      30,
+      100
+    ],
+    "ideal_ph": [
+      6.0,
+      8.0
+    ],
+    "sow": "October-November",
+    "harvest": "February-March",
+    "season": "Rabi",
+    "duration_days": "95-115",
+    "means": {
+      "Nitrogen": 40.03,
+      "Phosphorus": 66.87,
+      "Potassium": 79.12,
+      "Temperature": 18.99,
+      "Humidity": 57.1,
+      "pH_Value": 7.1,
+      "Rainfall": 70.08
+    },
+    "stds": {
+      "Nitrogen": 6.05,
+      "Phosphorus": 7.96,
+      "Potassium": 9.16,
+      "Temperature": 2.42,
+      "Humidity": 3.88,
+      "pH_Value": 0.3,
+      "Rainfall": 10.1
+    }
+  },
+  "Coconut": {
+    "name": "Coconut",
+    "emoji": "\ud83e\udd65",
+    "price_inr_q": 1500,
+    "ideal_temp": [
+      25,
+      40
+    ],
+    "ideal_humidity": [
+      60,
+      90
+    ],
+    "ideal_rainfall": [
+      100,
+      250
+    ],
+    "ideal_ph": [
+      5.0,
+      8.0
+    ],
+    "sow": "May-June",
+    "harvest": "Year-round",
+    "season": "Perennial",
+    "duration_days": "365+",
+    "means": {
+      "Nitrogen": 22.1,
+      "Phosphorus": 16.07,
+      "Potassium": 29.79,
+      "Temperature": 27.21,
+      "Humidity": 92.98,
+      "pH_Value": 5.79,
+      "Rainfall": 151.52
+    },
+    "stds": {
+      "Nitrogen": 3.97,
+      "Phosphorus": 3.06,
+      "Potassium": 4.89,
+      "Temperature": 1.51,
+      "Humidity": 2.92,
+      "pH_Value": 0.3,
+      "Rainfall": 17.52
+    }
+  },
+  "Cotton": {
+    "name": "Cotton",
+    "emoji": "\u2601\ufe0f",
+    "price_inr_q": 6080,
+    "ideal_temp": [
+      20,
+      40
+    ],
+    "ideal_humidity": [
+      40,
+      75
+    ],
+    "ideal_rainfall": [
+      50,
+      150
+    ],
+    "ideal_ph": [
+      5.8,
+      8.0
+    ],
+    "sow": "April-May",
+    "harvest": "November-January",
+    "season": "Kharif",
+    "duration_days": "150-180",
+    "means": {
+      "Nitrogen": 117.87,
+      "Phosphorus": 46.09,
+      "Potassium": 46.18,
+      "Temperature": 24.08,
+      "Humidity": 80.05,
+      "pH_Value": 7.0,
+      "Rainfall": 81.41
+    },
+    "stds": {
+      "Nitrogen": 12.01,
+      "Phosphorus": 5.98,
+      "Potassium": 5.94,
+      "Temperature": 2.5,
+      "Humidity": 4.07,
+      "pH_Value": 0.31,
+      "Rainfall": 12.46
+    }
+  },
+  "Ginger": {
+    "name": "Ginger",
+    "emoji": "\ud83e\udeda",
+    "price_inr_q": 5500,
+    "ideal_temp": [
+      18,
+      30
+    ],
+    "ideal_humidity": [
+      70,
+      90
+    ],
+    "ideal_rainfall": [
+      120,
+      250
+    ],
+    "ideal_ph": [
+      5.5,
+      6.5
+    ],
+    "sow": "April-May",
+    "harvest": "December-January",
+    "season": "Kharif",
+    "duration_days": "210-240",
+    "means": {
+      "Nitrogen": 100.06,
+      "Phosphorus": 50.19,
+      "Potassium": 100.15,
+      "Temperature": 22.03,
+      "Humidity": 82.09,
+      "pH_Value": 6.2,
+      "Rainfall": 165.66
+    },
+    "stds": {
+      "Nitrogen": 10.96,
+      "Phosphorus": 6.88,
+      "Potassium": 10.15,
+      "Temperature": 2.52,
+      "Humidity": 3.0,
+      "pH_Value": 0.29,
+      "Rainfall": 20.32
+    }
+  },
+  "Grapes": {
+    "name": "Grapes",
+    "emoji": "\ud83c\udf47",
+    "price_inr_q": 4000,
+    "ideal_temp": [
+      15,
+      35
+    ],
+    "ideal_humidity": [
+      40,
+      65
+    ],
+    "ideal_rainfall": [
+      25,
+      75
+    ],
+    "ideal_ph": [
+      5.5,
+      7.0
+    ],
+    "sow": "October-November",
+    "harvest": "March-May",
+    "season": "Perennial",
+    "duration_days": "120-150",
+    "means": {
+      "Nitrogen": 23.1,
+      "Phosphorus": 132.0,
+      "Potassium": 200.26,
+      "Temperature": 23.89,
+      "Humidity": 81.99,
+      "pH_Value": 5.7,
+      "Rainfall": 69.94
+    },
+    "stds": {
+      "Nitrogen": 4.02,
+      "Phosphorus": 11.86,
+      "Potassium": 17.87,
+      "Temperature": 2.59,
+      "Humidity": 3.12,
+      "pH_Value": 0.31,
+      "Rainfall": 9.95
+    }
+  },
+  "Groundnut": {
+    "name": "Groundnut",
+    "emoji": "\ud83e\udd5c",
+    "price_inr_q": 5850,
+    "ideal_temp": [
+      22,
+      35
+    ],
+    "ideal_humidity": [
+      50,
+      75
+    ],
+    "ideal_rainfall": [
+      50,
+      150
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "June-July",
+    "harvest": "October-November",
+    "season": "Kharif",
+    "duration_days": "100-120",
+    "means": {
+      "Nitrogen": 24.93,
+      "Phosphorus": 49.98,
+      "Potassium": 35.1,
+      "Temperature": 28.17,
+      "Humidity": 65.08,
+      "pH_Value": 6.7,
+      "Rainfall": 91.7
+    },
+    "stds": {
+      "Nitrogen": 4.91,
+      "Phosphorus": 6.95,
+      "Potassium": 4.96,
+      "Temperature": 2.57,
+      "Humidity": 4.03,
+      "pH_Value": 0.3,
+      "Rainfall": 14.21
+    }
+  },
+  "Jute": {
+    "name": "Jute",
+    "emoji": "\ud83c\udf3e",
+    "price_inr_q": 4500,
+    "ideal_temp": [
+      24,
+      40
+    ],
+    "ideal_humidity": [
+      60,
+      90
+    ],
+    "ideal_rainfall": [
+      100,
+      250
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "March-May",
+    "harvest": "July-August",
+    "season": "Kharif",
+    "duration_days": "120-150",
+    "means": {
+      "Nitrogen": 78.33,
+      "Phosphorus": 45.88,
+      "Potassium": 38.8,
+      "Temperature": 25.09,
+      "Humidity": 78.95,
+      "pH_Value": 6.59,
+      "Rainfall": 174.91
+    },
+    "stds": {
+      "Nitrogen": 10.28,
+      "Phosphorus": 5.95,
+      "Potassium": 6.12,
+      "Temperature": 1.53,
+      "Humidity": 3.04,
+      "pH_Value": 0.29,
+      "Rainfall": 20.91
+    }
+  },
+  "KidneyBeans": {
+    "name": "KidneyBeans",
+    "emoji": "\ud83e\uded8",
+    "price_inr_q": 3500,
+    "ideal_temp": [
+      18,
+      28
+    ],
+    "ideal_humidity": [
+      40,
+      70
+    ],
+    "ideal_rainfall": [
+      40,
+      100
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "March-May",
+    "harvest": "July-September",
+    "season": "Kharif",
+    "duration_days": "90-120",
+    "means": {
+      "Nitrogen": 20.0,
+      "Phosphorus": 67.06,
+      "Potassium": 79.08,
+      "Temperature": 20.06,
+      "Humidity": 58.91,
+      "pH_Value": 6.0,
+      "Rainfall": 74.19
+    },
+    "stds": {
+      "Nitrogen": 4.04,
+      "Phosphorus": 8.0,
+      "Potassium": 9.27,
+      "Temperature": 2.0,
+      "Humidity": 4.06,
+      "pH_Value": 0.31,
+      "Rainfall": 10.22
+    }
+  },
+  "Lentil": {
+    "name": "Lentil",
+    "emoji": "\ud83e\udd63",
+    "price_inr_q": 5500,
+    "ideal_temp": [
+      10,
+      25
+    ],
+    "ideal_humidity": [
+      40,
+      65
+    ],
+    "ideal_rainfall": [
+      25,
+      75
+    ],
+    "ideal_ph": [
+      6.0,
+      8.0
+    ],
+    "sow": "October-November",
+    "harvest": "March-April",
+    "season": "Rabi",
+    "duration_days": "110-130",
+    "means": {
+      "Nitrogen": 18.06,
+      "Phosphorus": 67.98,
+      "Potassium": 17.9,
+      "Temperature": 18.88,
+      "Humidity": 58.07,
+      "pH_Value": 6.9,
+      "Rainfall": 46.02
+    },
+    "stds": {
+      "Nitrogen": 3.0,
+      "Phosphorus": 7.96,
+      "Potassium": 2.94,
+      "Temperature": 2.02,
+      "Humidity": 3.96,
+      "pH_Value": 0.3,
+      "Rainfall": 6.99
+    }
+  },
+  "Maize": {
+    "name": "Maize",
+    "emoji": "\ud83c\udf3d",
+    "price_inr_q": 1870,
+    "ideal_temp": [
+      18,
+      35
+    ],
+    "ideal_humidity": [
+      50,
+      75
+    ],
+    "ideal_rainfall": [
+      50,
+      150
+    ],
+    "ideal_ph": [
+      5.8,
+      7.0
+    ],
+    "sow": "June-July",
+    "harvest": "September-October",
+    "season": "Kharif",
+    "duration_days": "90-110",
+    "means": {
+      "Nitrogen": 77.5,
+      "Phosphorus": 47.99,
+      "Potassium": 48.12,
+      "Temperature": 21.97,
+      "Humidity": 65.18,
+      "pH_Value": 6.2,
+      "Rainfall": 102.91
+    },
+    "stds": {
+      "Nitrogen": 10.25,
+      "Phosphorus": 7.01,
+      "Potassium": 7.02,
+      "Temperature": 1.99,
+      "Humidity": 3.87,
+      "pH_Value": 0.29,
+      "Rainfall": 13.68
+    }
+  },
+  "Mango": {
+    "name": "Mango",
+    "emoji": "\ud83e\udd6d",
+    "price_inr_q": 3000,
+    "ideal_temp": [
+      24,
+      40
+    ],
+    "ideal_humidity": [
+      40,
+      75
+    ],
+    "ideal_rainfall": [
+      75,
+      200
+    ],
+    "ideal_ph": [
+      5.5,
+      7.5
+    ],
+    "sow": "June-August",
+    "harvest": "April-June",
+    "season": "Perennial",
+    "duration_days": "365+",
+    "means": {
+      "Nitrogen": 20.02,
+      "Phosphorus": 26.92,
+      "Potassium": 30.02,
+      "Temperature": 31.22,
+      "Humidity": 49.06,
+      "pH_Value": 6.0,
+      "Rainfall": 103.24
+    },
+    "stds": {
+      "Nitrogen": 4.01,
+      "Phosphorus": 3.98,
+      "Potassium": 5.04,
+      "Temperature": 2.5,
+      "Humidity": 3.92,
+      "pH_Value": 0.3,
+      "Rainfall": 13.6
+    }
+  },
+  "MothBeans": {
+    "name": "MothBeans",
+    "emoji": "\ud83c\udf31",
+    "price_inr_q": 3900,
+    "ideal_temp": [
+      25,
+      40
+    ],
+    "ideal_humidity": [
+      30,
+      65
+    ],
+    "ideal_rainfall": [
+      25,
+      75
+    ],
+    "ideal_ph": [
+      6.0,
+      8.0
+    ],
+    "sow": "July-August",
+    "harvest": "October-November",
+    "season": "Kharif",
+    "duration_days": "75-90",
+    "means": {
+      "Nitrogen": 20.89,
+      "Phosphorus": 48.06,
+      "Potassium": 78.82,
+      "Temperature": 28.15,
+      "Humidity": 52.1,
+      "pH_Value": 6.9,
+      "Rainfall": 51.8
+    },
+    "stds": {
+      "Nitrogen": 4.09,
+      "Phosphorus": 6.09,
+      "Potassium": 9.35,
+      "Temperature": 2.53,
+      "Humidity": 5.04,
+      "pH_Value": 0.3,
+      "Rainfall": 7.97
+    }
+  },
+  "MungBean": {
+    "name": "MungBean",
+    "emoji": "\ud83c\udf31",
+    "price_inr_q": 7755,
+    "ideal_temp": [
+      20,
+      40
+    ],
+    "ideal_humidity": [
+      50,
+      80
+    ],
+    "ideal_rainfall": [
+      40,
+      100
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "March-April",
+    "harvest": "June-July",
+    "season": "Zaid/Kharif",
+    "duration_days": "65-75",
+    "means": {
+      "Nitrogen": 19.94,
+      "Phosphorus": 39.91,
+      "Potassium": 38.93,
+      "Temperature": 28.43,
+      "Humidity": 64.9,
+      "pH_Value": 6.7,
+      "Rainfall": 47.08
+    },
+    "stds": {
+      "Nitrogen": 4.12,
+      "Phosphorus": 5.92,
+      "Potassium": 5.95,
+      "Temperature": 2.47,
+      "Humidity": 3.9,
+      "pH_Value": 0.3,
+      "Rainfall": 8.18
+    }
+  },
+  "Mustard": {
+    "name": "Mustard",
+    "emoji": "\ud83c\udf3e",
+    "price_inr_q": 5450,
+    "ideal_temp": [
+      10,
+      25
+    ],
+    "ideal_humidity": [
+      40,
+      70
+    ],
+    "ideal_rainfall": [
+      40,
+      100
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "September-October",
+    "harvest": "February-March",
+    "season": "Rabi",
+    "duration_days": "105-125",
+    "means": {
+      "Nitrogen": 79.83,
+      "Phosphorus": 39.99,
+      "Potassium": 40.14,
+      "Temperature": 18.01,
+      "Humidity": 61.74,
+      "pH_Value": 7.31,
+      "Rainfall": 82.04
+    },
+    "stds": {
+      "Nitrogen": 9.79,
+      "Phosphorus": 5.92,
+      "Potassium": 6.1,
+      "Temperature": 2.46,
+      "Humidity": 4.78,
+      "pH_Value": 0.29,
+      "Rainfall": 11.9
+    }
+  },
+  "Onion": {
+    "name": "Onion",
+    "emoji": "\ud83e\uddc5",
+    "price_inr_q": 2000,
+    "ideal_temp": [
+      15,
+      30
+    ],
+    "ideal_humidity": [
+      50,
+      75
+    ],
+    "ideal_rainfall": [
+      50,
+      120
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "October-November",
+    "harvest": "February-April",
+    "season": "Rabi",
+    "duration_days": "100-140",
+    "means": {
+      "Nitrogen": 79.91,
+      "Phosphorus": 40.01,
+      "Potassium": 80.25,
+      "Temperature": 23.99,
+      "Humidity": 72.08,
+      "pH_Value": 6.81,
+      "Rainfall": 78.24
+    },
+    "stds": {
+      "Nitrogen": 9.29,
+      "Phosphorus": 5.89,
+      "Potassium": 9.28,
+      "Temperature": 2.51,
+      "Humidity": 3.99,
+      "pH_Value": 0.3,
+      "Rainfall": 10.13
+    }
+  },
+  "PigeonPeas": {
+    "name": "PigeonPeas",
+    "emoji": "\ud83e\uded8",
+    "price_inr_q": 6300,
+    "ideal_temp": [
+      18,
+      35
+    ],
+    "ideal_humidity": [
+      40,
+      70
+    ],
+    "ideal_rainfall": [
+      40,
+      100
+    ],
+    "ideal_ph": [
+      5.5,
+      7.0
+    ],
+    "sow": "June-July",
+    "harvest": "December-February",
+    "season": "Kharif",
+    "duration_days": "150-180",
+    "means": {
+      "Nitrogen": 20.15,
+      "Phosphorus": 66.9,
+      "Potassium": 79.31,
+      "Temperature": 27.17,
+      "Humidity": 48.94,
+      "pH_Value": 5.99,
+      "Rainfall": 98.59
+    },
+    "stds": {
+      "Nitrogen": 3.99,
+      "Phosphorus": 8.01,
+      "Potassium": 9.16,
+      "Temperature": 1.99,
+      "Humidity": 3.9,
+      "pH_Value": 0.3,
+      "Rainfall": 11.81
+    }
+  },
+  "Potato": {
+    "name": "Potato",
+    "emoji": "\ud83e\udd54",
+    "price_inr_q": 1000,
+    "ideal_temp": [
+      10,
+      25
+    ],
+    "ideal_humidity": [
+      60,
+      80
+    ],
+    "ideal_rainfall": [
+      100,
+      200
+    ],
+    "ideal_ph": [
+      5.0,
+      6.5
+    ],
+    "sow": "October-November",
+    "harvest": "January-March",
+    "season": "Rabi",
+    "duration_days": "90-120",
+    "means": {
+      "Nitrogen": 119.92,
+      "Phosphorus": 59.96,
+      "Potassium": 100.34,
+      "Temperature": 18.0,
+      "Humidity": 81.98,
+      "pH_Value": 5.81,
+      "Rainfall": 139.73
+    },
+    "stds": {
+      "Nitrogen": 11.85,
+      "Phosphorus": 6.93,
+      "Potassium": 10.19,
+      "Temperature": 2.5,
+      "Humidity": 3.04,
+      "pH_Value": 0.3,
+      "Rainfall": 18.21
+    }
+  },
+  "Rice": {
+    "name": "Rice",
+    "emoji": "\ud83c\udf3e",
+    "price_inr_q": 1850,
+    "ideal_temp": [
+      20,
+      35
+    ],
+    "ideal_humidity": [
+      70,
+      90
+    ],
+    "ideal_rainfall": [
+      150,
+      300
+    ],
+    "ideal_ph": [
+      5.5,
+      7.0
+    ],
+    "sow": "June-July",
+    "harvest": "November-December",
+    "season": "Kharif",
+    "duration_days": "110-140",
+    "means": {
+      "Nitrogen": 79.82,
+      "Phosphorus": 40.06,
+      "Potassium": 40.16,
+      "Temperature": 23.49,
+      "Humidity": 82.08,
+      "pH_Value": 6.41,
+      "Rainfall": 235.45
+    },
+    "stds": {
+      "Nitrogen": 10.09,
+      "Phosphorus": 5.88,
+      "Potassium": 6.0,
+      "Temperature": 1.49,
+      "Humidity": 2.93,
+      "pH_Value": 0.29,
+      "Rainfall": 20.0
+    }
+  },
+  "Soybean": {
+    "name": "Soybean",
+    "emoji": "\ud83c\udf31",
+    "price_inr_q": 3880,
+    "ideal_temp": [
+      20,
+      35
+    ],
+    "ideal_humidity": [
+      50,
+      75
+    ],
+    "ideal_rainfall": [
+      60,
+      150
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "June-July",
+    "harvest": "October-November",
+    "season": "Kharif",
+    "duration_days": "90-110",
+    "means": {
+      "Nitrogen": 40.27,
+      "Phosphorus": 59.89,
+      "Potassium": 39.89,
+      "Temperature": 22.97,
+      "Humidity": 67.09,
+      "pH_Value": 6.5,
+      "Rainfall": 97.02
+    },
+    "stds": {
+      "Nitrogen": 5.95,
+      "Phosphorus": 6.98,
+      "Potassium": 6.11,
+      "Temperature": 2.05,
+      "Humidity": 3.87,
+      "pH_Value": 0.3,
+      "Rainfall": 14.03
+    }
+  },
+  "Sugarcane": {
+    "name": "Sugarcane",
+    "emoji": "\ud83c\udf8b",
+    "price_inr_q": 290,
+    "ideal_temp": [
+      20,
+      35
+    ],
+    "ideal_humidity": [
+      70,
+      90
+    ],
+    "ideal_rainfall": [
+      100,
+      250
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "October-March",
+    "harvest": "October-March",
+    "season": "Annual",
+    "duration_days": "300-365",
+    "means": {
+      "Nitrogen": 95.86,
+      "Phosphorus": 64.9,
+      "Potassium": 77.93,
+      "Temperature": 25.93,
+      "Humidity": 79.92,
+      "pH_Value": 7.01,
+      "Rainfall": 120.16
+    },
+    "stds": {
+      "Nitrogen": 12.03,
+      "Phosphorus": 7.95,
+      "Potassium": 8.88,
+      "Temperature": 2.02,
+      "Humidity": 4.07,
+      "pH_Value": 0.3,
+      "Rainfall": 18.28
+    }
+  },
+  "Sunflower": {
+    "name": "Sunflower",
+    "emoji": "\ud83c\udf3b",
+    "price_inr_q": 5441,
+    "ideal_temp": [
+      18,
+      35
+    ],
+    "ideal_humidity": [
+      45,
+      70
+    ],
+    "ideal_rainfall": [
+      50,
+      120
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "January-February",
+    "harvest": "April-May",
+    "season": "Rabi",
+    "duration_days": "85-100",
+    "means": {
+      "Nitrogen": 75.15,
+      "Phosphorus": 44.98,
+      "Potassium": 40.1,
+      "Temperature": 23.0,
+      "Humidity": 71.99,
+      "pH_Value": 6.8,
+      "Rainfall": 84.99
+    },
+    "stds": {
+      "Nitrogen": 9.05,
+      "Phosphorus": 6.0,
+      "Potassium": 6.12,
+      "Temperature": 2.5,
+      "Humidity": 4.02,
+      "pH_Value": 0.3,
+      "Rainfall": 11.99
+    }
+  },
+  "Tomato": {
+    "name": "Tomato",
+    "emoji": "\ud83c\udf45",
+    "price_inr_q": 2500,
+    "ideal_temp": [
+      18,
+      30
+    ],
+    "ideal_humidity": [
+      50,
+      75
+    ],
+    "ideal_rainfall": [
+      50,
+      120
+    ],
+    "ideal_ph": [
+      6.0,
+      7.0
+    ],
+    "sow": "June-July",
+    "harvest": "September-November",
+    "season": "Kharif/Rabi",
+    "duration_days": "75-90",
+    "means": {
+      "Nitrogen": 79.97,
+      "Phosphorus": 60.13,
+      "Potassium": 79.82,
+      "Temperature": 22.98,
+      "Humidity": 71.69,
+      "pH_Value": 6.5,
+      "Rainfall": 85.13
+    },
+    "stds": {
+      "Nitrogen": 9.04,
+      "Phosphorus": 6.93,
+      "Potassium": 9.3,
+      "Temperature": 2.52,
+      "Humidity": 4.05,
+      "pH_Value": 0.31,
+      "Rainfall": 12.11
+    }
+  },
+  "Turmeric": {
+    "name": "Turmeric",
+    "emoji": "\ud83c\udf60",
+    "price_inr_q": 7000,
+    "ideal_temp": [
+      20,
+      35
+    ],
+    "ideal_humidity": [
+      70,
+      90
+    ],
+    "ideal_rainfall": [
+      150,
+      300
+    ],
+    "ideal_ph": [
+      5.5,
+      7.0
+    ],
+    "sow": "May-June",
+    "harvest": "January-March",
+    "season": "Kharif",
+    "duration_days": "210-270",
+    "means": {
+      "Nitrogen": 89.76,
+      "Phosphorus": 60.1,
+      "Potassium": 119.69,
+      "Temperature": 25.97,
+      "Humidity": 82.04,
+      "pH_Value": 6.3,
+      "Rainfall": 189.87
+    },
+    "stds": {
+      "Nitrogen": 9.97,
+      "Phosphorus": 7.18,
+      "Potassium": 11.75,
+      "Temperature": 2.02,
+      "Humidity": 3.0,
+      "pH_Value": 0.3,
+      "Rainfall": 22.21
+    }
+  },
+  "Wheat": {
+    "name": "Wheat",
+    "emoji": "\ud83c\udf3e",
+    "price_inr_q": 1975,
+    "ideal_temp": [
+      10,
+      25
+    ],
+    "ideal_humidity": [
+      50,
+      75
+    ],
+    "ideal_rainfall": [
+      75,
+      150
+    ],
+    "ideal_ph": [
+      6.0,
+      7.5
+    ],
+    "sow": "October-November",
+    "harvest": "March-April",
+    "season": "Rabi",
+    "duration_days": "120-150",
+    "means": {
+      "Nitrogen": 90.02,
+      "Phosphorus": 50.1,
+      "Potassium": 39.93,
+      "Temperature": 18.07,
+      "Humidity": 67.98,
+      "pH_Value": 6.7,
+      "Rainfall": 120.34
+    },
+    "stds": {
+      "Nitrogen": 10.85,
+      "Phosphorus": 6.97,
+      "Potassium": 5.81,
+      "Temperature": 1.94,
+      "Humidity": 4.02,
+      "pH_Value": 0.3,
+      "Rainfall": 14.79
+    }
+  }
+}

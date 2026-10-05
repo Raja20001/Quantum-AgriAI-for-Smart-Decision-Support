@@ -1,0 +1,1673 @@
+{
+  "Andaman & Nicobar": {
+    "state": "Andaman & Nicobar",
+    "records": 83,
+    "district_count": 3,
+    "districts": [
+      "Nicobars",
+      "North and Middle Andaman",
+      "South Andaman"
+    ],
+    "top_crops": {
+      "Coconut": 29,
+      "Rice": 25,
+      "Banana": 20,
+      "Turmeric": 9
+    },
+    "avg_yield": {
+      "Banana": 27105.9,
+      "Coconut": 6873.6,
+      "Rice": 3471.1,
+      "Turmeric": 3543.3
+    },
+    "avg_price": {
+      "Banana": 1157.0,
+      "Coconut": 1545.0,
+      "Rice": 1793.0,
+      "Turmeric": 7146.0
+    },
+    "seasons": [
+      "Annual",
+      "Kharif"
+    ]
+  },
+  "Andhra Pradesh": {
+    "state": "Andhra Pradesh",
+    "records": 379,
+    "district_count": 14,
+    "districts": [
+      "Anantapur",
+      "Chittoor",
+      "East Godavari",
+      "Guntur",
+      "Kadapa",
+      "Krishna",
+      "Kurnool",
+      "Nellore",
+      "Prakasam",
+      "Srikakulam",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Vizianagaram",
+      "West Godavari"
+    ],
+    "top_crops": {
+      "Groundnut": 66,
+      "Mango": 54,
+      "Cotton": 53,
+      "Maize": 46,
+      "Sugarcane": 44,
+      "Banana": 44,
+      "Rice": 37,
+      "Tomato": 35
+    },
+    "avg_yield": {
+      "Banana": 24697.0,
+      "Cotton": 516.5,
+      "Groundnut": 2089.4,
+      "Maize": 3214.0,
+      "Mango": 7389.1,
+      "Rice": 3199.1,
+      "Sugarcane": 65346.9,
+      "Tomato": 20190.0
+    },
+    "avg_price": {
+      "Banana": 1185.0,
+      "Cotton": 6064.0,
+      "Groundnut": 5812.0,
+      "Maize": 1792.0,
+      "Mango": 2983.0,
+      "Rice": 1875.0,
+      "Sugarcane": 303.0,
+      "Tomato": 2485.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif",
+      "Annual"
+    ]
+  },
+  "Arunachal Pradesh": {
+    "state": "Arunachal Pradesh",
+    "records": 131,
+    "district_count": 5,
+    "districts": [
+      "East Kameng",
+      "Itanagar",
+      "Lohit",
+      "Papum Pare",
+      "West Kameng"
+    ],
+    "top_crops": {
+      "Potato": 37,
+      "Rice": 34,
+      "Apple": 33,
+      "Ginger": 17,
+      "Maize": 10
+    },
+    "avg_yield": {
+      "Apple": 11398.5,
+      "Ginger": 3927.0,
+      "Maize": 3059.3,
+      "Potato": 20179.2,
+      "Rice": 3273.5
+    },
+    "avg_price": {
+      "Apple": 4979.0,
+      "Ginger": 5528.0,
+      "Maize": 1842.0,
+      "Potato": 1028.0,
+      "Rice": 1910.0
+    },
+    "seasons": [
+      "Kharif",
+      "Rabi"
+    ]
+  },
+  "Assam": {
+    "state": "Assam",
+    "records": 271,
+    "district_count": 10,
+    "districts": [
+      "Barpeta",
+      "Cachar",
+      "Dibrugarh",
+      "Golaghat",
+      "Guwahati",
+      "Jorhat",
+      "Kamrup",
+      "Nagaon",
+      "Sivasagar",
+      "Tinsukia"
+    ],
+    "top_crops": {
+      "Banana": 55,
+      "Rice": 46,
+      "Sugarcane": 44,
+      "Turmeric": 37,
+      "Jute": 33,
+      "Ginger": 28,
+      "Mustard": 28
+    },
+    "avg_yield": {
+      "Banana": 23172.5,
+      "Ginger": 3920.8,
+      "Jute": 2717.1,
+      "Mustard": 1602.3,
+      "Rice": 3280.0,
+      "Sugarcane": 67687.5,
+      "Turmeric": 4178.5
+    },
+    "avg_price": {
+      "Banana": 1176.0,
+      "Ginger": 5522.0,
+      "Jute": 4468.0,
+      "Mustard": 5561.0,
+      "Rice": 1855.0,
+      "Sugarcane": 303.0,
+      "Turmeric": 6933.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual",
+      "Rabi"
+    ]
+  },
+  "Bihar": {
+    "state": "Bihar",
+    "records": 325,
+    "district_count": 12,
+    "districts": [
+      "Araria",
+      "Bhagalpur",
+      "Darbhanga",
+      "Gaya",
+      "Muzaffarpur",
+      "Nalanda",
+      "Patna",
+      "Purnia",
+      "Rohtas",
+      "Saran",
+      "Sitamarhi",
+      "Vaishali"
+    ],
+    "top_crops": {
+      "Sugarcane": 50,
+      "Onion": 46,
+      "Potato": 46,
+      "Lentil": 38,
+      "Wheat": 36,
+      "Rice": 29,
+      "Maize": 29,
+      "Mango": 27
+    },
+    "avg_yield": {
+      "Lentil": 1017.0,
+      "Maize": 3239.5,
+      "Mango": 7135.4,
+      "Mustard": 1581.3,
+      "Onion": 15002.8,
+      "Potato": 20333.9,
+      "Rice": 3054.8,
+      "Sugarcane": 69955.8,
+      "Wheat": 3878.6
+    },
+    "avg_price": {
+      "Lentil": 5545.0,
+      "Maize": 1834.0,
+      "Mango": 3086.0,
+      "Mustard": 5423.0,
+      "Onion": 2009.0,
+      "Potato": 1027.0,
+      "Rice": 1822.0,
+      "Sugarcane": 285.0,
+      "Wheat": 1993.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual",
+      "Rabi"
+    ]
+  },
+  "Chandigarh": {
+    "state": "Chandigarh",
+    "records": 28,
+    "district_count": 1,
+    "districts": [
+      "Chandigarh"
+    ],
+    "top_crops": {
+      "Wheat": 10,
+      "Mustard": 10,
+      "Rice": 8
+    },
+    "avg_yield": {
+      "Mustard": 1683.1,
+      "Rice": 3192.3,
+      "Wheat": 3882.5
+    },
+    "avg_price": {
+      "Mustard": 5624.0,
+      "Rice": 1910.0,
+      "Wheat": 2196.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "Chhattisgarh": {
+    "state": "Chhattisgarh",
+    "records": 240,
+    "district_count": 9,
+    "districts": [
+      "Ambikapur",
+      "Bilaspur",
+      "Durg",
+      "Jagdalpur",
+      "Korba",
+      "Raigarh",
+      "Raipur",
+      "Rajnandgaon",
+      "Surguja"
+    ],
+    "top_crops": {
+      "Soybean": 63,
+      "Groundnut": 52,
+      "Maize": 45,
+      "Mustard": 45,
+      "Rice": 35
+    },
+    "avg_yield": {
+      "Groundnut": 2145.3,
+      "Maize": 3295.3,
+      "Mustard": 1539.0,
+      "Rice": 3150.1,
+      "Soybean": 1462.5
+    },
+    "avg_price": {
+      "Groundnut": 5869.0,
+      "Maize": 1841.0,
+      "Mustard": 5399.0,
+      "Rice": 1867.0,
+      "Soybean": 3885.0
+    },
+    "seasons": [
+      "Kharif",
+      "Rabi"
+    ]
+  },
+  "Dadra & Nagar Haveli": {
+    "state": "Dadra & Nagar Haveli",
+    "records": 30,
+    "district_count": 1,
+    "districts": [
+      "Dadra and Nagar Haveli"
+    ],
+    "top_crops": {
+      "Maize": 10,
+      "Rice": 10,
+      "Sugarcane": 10
+    },
+    "avg_yield": {
+      "Maize": 2869.9,
+      "Rice": 3612.7,
+      "Sugarcane": 71655.7
+    },
+    "avg_price": {
+      "Maize": 1872.0,
+      "Rice": 1881.0,
+      "Sugarcane": 286.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual"
+    ]
+  },
+  "Daman & Diu": {
+    "state": "Daman & Diu",
+    "records": 54,
+    "district_count": 2,
+    "districts": [
+      "Daman",
+      "Diu"
+    ],
+    "top_crops": {
+      "Wheat": 19,
+      "Rice": 18,
+      "Sugarcane": 17
+    },
+    "avg_yield": {
+      "Rice": 3351.0,
+      "Sugarcane": 70058.2,
+      "Wheat": 3839.5
+    },
+    "avg_price": {
+      "Rice": 1917.0,
+      "Sugarcane": 275.0,
+      "Wheat": 1923.0
+    },
+    "seasons": [
+      "Annual",
+      "Kharif",
+      "Rabi"
+    ]
+  },
+  "Delhi": {
+    "state": "Delhi",
+    "records": 137,
+    "district_count": 5,
+    "districts": [
+      "East Delhi",
+      "New Delhi",
+      "North Delhi",
+      "South Delhi",
+      "West Delhi"
+    ],
+    "top_crops": {
+      "Tomato": 38,
+      "Rice": 36,
+      "Wheat": 27,
+      "Potato": 20,
+      "Mustard": 16
+    },
+    "avg_yield": {
+      "Mustard": 1624.4,
+      "Potato": 18790.6,
+      "Rice": 3350.3,
+      "Tomato": 18422.6,
+      "Wheat": 3632.6
+    },
+    "avg_price": {
+      "Mustard": 5644.0,
+      "Potato": 996.0,
+      "Rice": 1818.0,
+      "Tomato": 2481.0,
+      "Wheat": 1951.0
+    },
+    "seasons": [
+      "Kharif",
+      "Rabi"
+    ]
+  },
+  "Goa": {
+    "state": "Goa",
+    "records": 56,
+    "district_count": 2,
+    "districts": [
+      "North Goa",
+      "South Goa"
+    ],
+    "top_crops": {
+      "Mango": 20,
+      "Banana": 18,
+      "Sugarcane": 10,
+      "Coconut": 8
+    },
+    "avg_yield": {
+      "Banana": 24080.1,
+      "Coconut": 6808.5,
+      "Mango": 7430.6,
+      "Sugarcane": 70362.1
+    },
+    "avg_price": {
+      "Banana": 1217.0,
+      "Coconut": 1472.0,
+      "Mango": 3080.0,
+      "Sugarcane": 275.0
+    },
+    "seasons": [
+      "Annual"
+    ]
+  },
+  "Gujarat": {
+    "state": "Gujarat",
+    "records": 378,
+    "district_count": 14,
+    "districts": [
+      "Ahmedabad",
+      "Amreli",
+      "Anand",
+      "Bhavnagar",
+      "Gandhinagar",
+      "Jamnagar",
+      "Junagadh",
+      "Kaira",
+      "Kheda",
+      "Mehsana",
+      "Rajkot",
+      "Sabarkantha",
+      "Surat",
+      "Vadodara"
+    ],
+    "top_crops": {
+      "Rice": 81,
+      "Groundnut": 73,
+      "Mustard": 60,
+      "Potato": 47,
+      "Cotton": 44,
+      "Wheat": 43,
+      "Sugarcane": 30
+    },
+    "avg_yield": {
+      "Cotton": 425.4,
+      "Groundnut": 1973.1,
+      "Mustard": 1656.1,
+      "Potato": 19824.7,
+      "Rice": 3029.5,
+      "Sugarcane": 70956.1,
+      "Wheat": 4063.4
+    },
+    "avg_price": {
+      "Cotton": 6192.0,
+      "Groundnut": 5846.0,
+      "Mustard": 5482.0,
+      "Potato": 977.0,
+      "Rice": 1843.0,
+      "Sugarcane": 296.0,
+      "Wheat": 1947.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual",
+      "Rabi"
+    ]
+  },
+  "Haryana": {
+    "state": "Haryana",
+    "records": 329,
+    "district_count": 12,
+    "districts": [
+      "Ambala",
+      "Bhiwani",
+      "Faridabad",
+      "Gurugram",
+      "Hisar",
+      "Jhajjar",
+      "Karnal",
+      "Kurukshetra",
+      "Panipat",
+      "Rohtak",
+      "Sirsa",
+      "Sonipat"
+    ],
+    "top_crops": {
+      "Mustard": 58,
+      "MungBean": 55,
+      "Sunflower": 46,
+      "Wheat": 45,
+      "Rice": 37,
+      "Sugarcane": 34,
+      "Cotton": 28,
+      "Maize": 26
+    },
+    "avg_yield": {
+      "Cotton": 461.2,
+      "Maize": 3225.8,
+      "MungBean": 940.1,
+      "Mustard": 1673.1,
+      "Rice": 3191.2,
+      "Sugarcane": 66629.8,
+      "Sunflower": 1368.6,
+      "Wheat": 3628.0
+    },
+    "avg_price": {
+      "Cotton": 6188.0,
+      "Maize": 1866.0,
+      "MungBean": 7826.0,
+      "Mustard": 5324.0,
+      "Rice": 1816.0,
+      "Sugarcane": 283.0,
+      "Sunflower": 5354.0,
+      "Wheat": 2007.0
+    },
+    "seasons": [
+      "Rabi",
+      "Zaid",
+      "Kharif",
+      "Annual"
+    ]
+  },
+  "Himachal Pradesh": {
+    "state": "Himachal Pradesh",
+    "records": 211,
+    "district_count": 8,
+    "districts": [
+      "Bilaspur",
+      "Hamirpur",
+      "Kangra",
+      "Kullu",
+      "Mandi",
+      "Shimla",
+      "Solan",
+      "Una"
+    ],
+    "top_crops": {
+      "Potato": 46,
+      "Wheat": 43,
+      "Maize": 35,
+      "Tomato": 28,
+      "Apple": 23,
+      "Rice": 18,
+      "Ginger": 18
+    },
+    "avg_yield": {
+      "Apple": 11493.4,
+      "Ginger": 3771.8,
+      "Maize": 3511.3,
+      "Potato": 20436.5,
+      "Rice": 2493.8,
+      "Tomato": 21538.4,
+      "Wheat": 3826.9
+    },
+    "avg_price": {
+      "Apple": 5278.0,
+      "Ginger": 5653.0,
+      "Maize": 1839.0,
+      "Potato": 1012.0,
+      "Rice": 1956.0,
+      "Tomato": 2504.0,
+      "Wheat": 1986.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "Jammu & Kashmir": {
+    "state": "Jammu & Kashmir",
+    "records": 269,
+    "district_count": 10,
+    "districts": [
+      "Anantnag",
+      "Baramulla",
+      "Jammu",
+      "Kathua",
+      "Kupwara",
+      "Poonch",
+      "Pulwama",
+      "Rajouri",
+      "Srinagar",
+      "Udhampur"
+    ],
+    "top_crops": {
+      "Lentil": 57,
+      "Maize": 45,
+      "Apple": 42,
+      "Mustard": 39,
+      "Soybean": 35,
+      "Potato": 25,
+      "Wheat": 17,
+      "Rice": 9
+    },
+    "avg_yield": {
+      "Apple": 12075.5,
+      "Lentil": 966.3,
+      "Maize": 3078.2,
+      "Mustard": 1593.9,
+      "Potato": 20272.1,
+      "Rice": 2960.0,
+      "Soybean": 1535.8,
+      "Wheat": 3252.8
+    },
+    "avg_price": {
+      "Apple": 5124.0,
+      "Lentil": 5628.0,
+      "Maize": 1838.0,
+      "Mustard": 5400.0,
+      "Potato": 1043.0,
+      "Rice": 1742.0,
+      "Soybean": 3893.0,
+      "Wheat": 2035.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "Jharkhand": {
+    "state": "Jharkhand",
+    "records": 187,
+    "district_count": 7,
+    "districts": [
+      "Bokaro",
+      "Deoghar",
+      "Dhanbad",
+      "Giridih",
+      "Hazaribagh",
+      "Jamshedpur",
+      "Ranchi"
+    ],
+    "top_crops": {
+      "Rice": 45,
+      "MungBean": 44,
+      "Lentil": 33,
+      "PigeonPeas": 28,
+      "Maize": 27,
+      "Wheat": 10
+    },
+    "avg_yield": {
+      "Lentil": 938.7,
+      "Maize": 3083.4,
+      "MungBean": 968.4,
+      "PigeonPeas": 1267.7,
+      "Rice": 2974.0,
+      "Wheat": 2846.4
+    },
+    "avg_price": {
+      "Lentil": 5555.0,
+      "Maize": 1899.0,
+      "MungBean": 7742.0,
+      "PigeonPeas": 6291.0,
+      "Rice": 1859.0,
+      "Wheat": 2045.0
+    },
+    "seasons": [
+      "Kharif",
+      "Zaid",
+      "Rabi"
+    ]
+  },
+  "Karnataka": {
+    "state": "Karnataka",
+    "records": 410,
+    "district_count": 15,
+    "districts": [
+      "Belagavi",
+      "Bellary",
+      "Bengaluru Urban",
+      "Bidar",
+      "Chamarajanagar",
+      "Davangere",
+      "Dharwad",
+      "Hassan",
+      "Hubballi",
+      "Kalaburagi",
+      "Mangaluru",
+      "Mysuru",
+      "Raichur",
+      "Shivamogga",
+      "Tumkur"
+    ],
+    "top_crops": {
+      "Cotton": 66,
+      "Maize": 62,
+      "Grapes": 56,
+      "Rice": 54,
+      "Sunflower": 51,
+      "Mango": 37,
+      "Groundnut": 26,
+      "Banana": 20
+    },
+    "avg_yield": {
+      "Banana": 26156.2,
+      "Coconut": 7130.3,
+      "Cotton": 415.9,
+      "Grapes": 14650.6,
+      "Groundnut": 2195.4,
+      "Maize": 3355.6,
+      "Mango": 7284.2,
+      "Rice": 3288.6,
+      "Sugarcane": 68686.6,
+      "Sunflower": 1372.7
+    },
+    "avg_price": {
+      "Banana": 1232.0,
+      "Coconut": 1517.0,
+      "Cotton": 6003.0,
+      "Grapes": 3997.0,
+      "Groundnut": 5760.0,
+      "Maize": 1900.0,
+      "Mango": 3018.0,
+      "Rice": 1876.0,
+      "Sugarcane": 280.0,
+      "Sunflower": 5447.0
+    },
+    "seasons": [
+      "Rabi",
+      "Annual",
+      "Kharif"
+    ]
+  },
+  "Kerala": {
+    "state": "Kerala",
+    "records": 293,
+    "district_count": 11,
+    "districts": [
+      "Alappuzha",
+      "Idukki",
+      "Kannur",
+      "Kochi",
+      "Kollam",
+      "Kozhikode",
+      "Malappuram",
+      "Palakkad",
+      "Thiruvananthapuram",
+      "Thrissur",
+      "Wayanad"
+    ],
+    "top_crops": {
+      "Rice": 72,
+      "Turmeric": 68,
+      "Banana": 64,
+      "Ginger": 62,
+      "Coconut": 27
+    },
+    "avg_yield": {
+      "Banana": 24581.8,
+      "Coconut": 6681.8,
+      "Ginger": 3987.5,
+      "Rice": 3093.2,
+      "Turmeric": 4032.8
+    },
+    "avg_price": {
+      "Banana": 1222.0,
+      "Coconut": 1540.0,
+      "Ginger": 5372.0,
+      "Rice": 1814.0,
+      "Turmeric": 7048.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual"
+    ]
+  },
+  "Ladakh": {
+    "state": "Ladakh",
+    "records": 58,
+    "district_count": 2,
+    "districts": [
+      "Kargil",
+      "Leh"
+    ],
+    "top_crops": {
+      "Mustard": 20,
+      "Potato": 19,
+      "Wheat": 19
+    },
+    "avg_yield": {
+      "Mustard": 1708.8,
+      "Potato": 19642.6,
+      "Wheat": 3885.0
+    },
+    "avg_price": {
+      "Mustard": 5695.0,
+      "Potato": 964.0,
+      "Wheat": 1953.0
+    },
+    "seasons": [
+      "Rabi"
+    ]
+  },
+  "Lakshadweep": {
+    "state": "Lakshadweep",
+    "records": 18,
+    "district_count": 1,
+    "districts": [
+      "Lakshadweep"
+    ],
+    "top_crops": {
+      "Banana": 9,
+      "Coconut": 9
+    },
+    "avg_yield": {
+      "Banana": 22757.2,
+      "Coconut": 7087.6
+    },
+    "avg_price": {
+      "Banana": 1171.0,
+      "Coconut": 1463.0
+    },
+    "seasons": [
+      "Annual"
+    ]
+  },
+  "Madhya Pradesh": {
+    "state": "Madhya Pradesh",
+    "records": 411,
+    "district_count": 15,
+    "districts": [
+      "Bhopal",
+      "Chhindwara",
+      "Dewas",
+      "Gwalior",
+      "Hoshangabad",
+      "Indore",
+      "Jabalpur",
+      "Narsinghpur",
+      "Raisen",
+      "Rewa",
+      "Sagar",
+      "Satna",
+      "Shivpuri",
+      "Ujjain",
+      "Vidisha"
+    ],
+    "top_crops": {
+      "Mustard": 64,
+      "Lentil": 56,
+      "Maize": 47,
+      "Onion": 45,
+      "Sugarcane": 44,
+      "Wheat": 38,
+      "Cotton": 37,
+      "Potato": 35
+    },
+    "avg_yield": {
+      "Cotton": 479.5,
+      "Groundnut": 1977.4,
+      "Lentil": 1012.7,
+      "Maize": 3167.5,
+      "Mustard": 1533.5,
+      "Onion": 15006.5,
+      "Potato": 19475.2,
+      "Soybean": 1473.6,
+      "Sugarcane": 69826.8,
+      "Wheat": 3784.5
+    },
+    "avg_price": {
+      "Cotton": 5918.0,
+      "Groundnut": 6038.0,
+      "Lentil": 5612.0,
+      "Maize": 1947.0,
+      "Mustard": 5465.0,
+      "Onion": 1995.0,
+      "Potato": 987.0,
+      "Soybean": 3929.0,
+      "Sugarcane": 313.0,
+      "Wheat": 1965.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif",
+      "Annual"
+    ]
+  },
+  "Maharashtra": {
+    "state": "Maharashtra",
+    "records": 432,
+    "district_count": 16,
+    "districts": [
+      "Akola",
+      "Amravati",
+      "Aurangabad",
+      "Jalgaon",
+      "Kolhapur",
+      "Latur",
+      "Mumbai",
+      "Nagpur",
+      "Nashik",
+      "Osmanabad",
+      "Pune",
+      "Sangli",
+      "Satara",
+      "Solapur",
+      "Wardha",
+      "Yavatmal"
+    ],
+    "top_crops": {
+      "Rice": 89,
+      "Wheat": 48,
+      "Cotton": 46,
+      "Banana": 45,
+      "Tomato": 43,
+      "Grapes": 41,
+      "Mango": 38,
+      "Onion": 37
+    },
+    "avg_yield": {
+      "Banana": 26550.9,
+      "Cotton": 505.9,
+      "Grapes": 14113.3,
+      "Mango": 7379.1,
+      "Onion": 14857.5,
+      "Rice": 3232.0,
+      "Soybean": 1311.9,
+      "Sugarcane": 61722.8,
+      "Tomato": 18242.0,
+      "Wheat": 3671.6
+    },
+    "avg_price": {
+      "Banana": 1158.0,
+      "Cotton": 6252.0,
+      "Grapes": 3942.0,
+      "Mango": 2970.0,
+      "Onion": 1943.0,
+      "Rice": 1856.0,
+      "Soybean": 3844.0,
+      "Sugarcane": 274.0,
+      "Tomato": 2531.0,
+      "Wheat": 2025.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual",
+      "Rabi"
+    ]
+  },
+  "Manipur": {
+    "state": "Manipur",
+    "records": 136,
+    "district_count": 5,
+    "districts": [
+      "Bishnupur",
+      "Churachandpur",
+      "Imphal East",
+      "Imphal West",
+      "Thoubal"
+    ],
+    "top_crops": {
+      "Rice": 38,
+      "Ginger": 28,
+      "Potato": 27,
+      "Maize": 24,
+      "MungBean": 19
+    },
+    "avg_yield": {
+      "Ginger": 4067.5,
+      "Maize": 3216.8,
+      "MungBean": 905.2,
+      "Potato": 20743.0,
+      "Rice": 3000.4
+    },
+    "avg_price": {
+      "Ginger": 5798.0,
+      "Maize": 1826.0,
+      "MungBean": 7962.0,
+      "Potato": 981.0,
+      "Rice": 1802.0
+    },
+    "seasons": [
+      "Kharif",
+      "Zaid",
+      "Rabi"
+    ]
+  },
+  "Meghalaya": {
+    "state": "Meghalaya",
+    "records": 105,
+    "district_count": 4,
+    "districts": [
+      "East Khasi Hills",
+      "Jaintia Hills",
+      "Ri Bhoi",
+      "West Khasi Hills"
+    ],
+    "top_crops": {
+      "Maize": 26,
+      "Potato": 25,
+      "Ginger": 19,
+      "Turmeric": 18,
+      "Rice": 17
+    },
+    "avg_yield": {
+      "Ginger": 4403.5,
+      "Maize": 3030.9,
+      "Potato": 19955.4,
+      "Rice": 2729.7,
+      "Turmeric": 4065.0
+    },
+    "avg_price": {
+      "Ginger": 5732.0,
+      "Maize": 1883.0,
+      "Potato": 990.0,
+      "Rice": 1865.0,
+      "Turmeric": 7158.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "Mizoram": {
+    "state": "Mizoram",
+    "records": 105,
+    "district_count": 4,
+    "districts": [
+      "Aizawl",
+      "Champhai",
+      "Lunglei",
+      "Serchhip"
+    ],
+    "top_crops": {
+      "Maize": 35,
+      "Potato": 34,
+      "Rice": 18,
+      "Ginger": 18
+    },
+    "avg_yield": {
+      "Ginger": 3929.2,
+      "Maize": 3404.6,
+      "Potato": 20001.2,
+      "Rice": 2762.8
+    },
+    "avg_price": {
+      "Ginger": 5651.0,
+      "Maize": 1855.0,
+      "Potato": 1016.0,
+      "Rice": 1813.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "Nagaland": {
+    "state": "Nagaland",
+    "records": 131,
+    "district_count": 5,
+    "districts": [
+      "Dimapur",
+      "Kohima",
+      "Mokokchung",
+      "Tuensang",
+      "Wokha"
+    ],
+    "top_crops": {
+      "MungBean": 33,
+      "Rice": 33,
+      "Maize": 28,
+      "Potato": 20,
+      "Ginger": 17
+    },
+    "avg_yield": {
+      "Ginger": 4125.3,
+      "Maize": 3038.0,
+      "MungBean": 960.3,
+      "Potato": 19763.8,
+      "Rice": 3299.2
+    },
+    "avg_price": {
+      "Ginger": 5634.0,
+      "Maize": 1891.0,
+      "MungBean": 7685.0,
+      "Potato": 1017.0,
+      "Rice": 1840.0
+    },
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Zaid"
+    ]
+  },
+  "Odisha": {
+    "state": "Odisha",
+    "records": 319,
+    "district_count": 12,
+    "districts": [
+      "Balasore",
+      "Berhampur",
+      "Bhadrak",
+      "Bhubaneswar",
+      "Cuttack",
+      "Ganjam",
+      "Kendrapara",
+      "Koraput",
+      "Puri",
+      "Rayagada",
+      "Rourkela",
+      "Sambalpur"
+    ],
+    "top_crops": {
+      "Maize": 54,
+      "Groundnut": 53,
+      "Rice": 52,
+      "Mustard": 45,
+      "Turmeric": 35,
+      "Coconut": 35,
+      "Tomato": 27,
+      "Sugarcane": 18
+    },
+    "avg_yield": {
+      "Coconut": 7153.7,
+      "Groundnut": 1934.5,
+      "Maize": 3439.0,
+      "Mustard": 1594.7,
+      "Rice": 3128.8,
+      "Sugarcane": 73900.7,
+      "Tomato": 20545.4,
+      "Turmeric": 3896.4
+    },
+    "avg_price": {
+      "Coconut": 1520.0,
+      "Groundnut": 5886.0,
+      "Maize": 1867.0,
+      "Mustard": 5444.0,
+      "Rice": 1858.0,
+      "Sugarcane": 289.0,
+      "Tomato": 2463.0,
+      "Turmeric": 6935.0
+    },
+    "seasons": [
+      "Kharif",
+      "Rabi",
+      "Annual"
+    ]
+  },
+  "Puducherry": {
+    "state": "Puducherry",
+    "records": 116,
+    "district_count": 4,
+    "districts": [
+      "Karaikal",
+      "Mahe",
+      "Puducherry",
+      "Yanam"
+    ],
+    "top_crops": {
+      "Sugarcane": 29,
+      "Tomato": 29,
+      "Cotton": 19,
+      "Rice": 19,
+      "Groundnut": 10,
+      "Banana": 10
+    },
+    "avg_yield": {
+      "Banana": 25815.2,
+      "Cotton": 441.8,
+      "Groundnut": 2146.5,
+      "Rice": 2981.7,
+      "Sugarcane": 69028.0,
+      "Tomato": 19250.6
+    },
+    "avg_price": {
+      "Banana": 1263.0,
+      "Cotton": 6271.0,
+      "Groundnut": 6230.0,
+      "Rice": 1898.0,
+      "Sugarcane": 277.0,
+      "Tomato": 2474.0
+    },
+    "seasons": [
+      "Annual",
+      "Kharif",
+      "Rabi"
+    ]
+  },
+  "Punjab": {
+    "state": "Punjab",
+    "records": 321,
+    "district_count": 12,
+    "districts": [
+      "Amritsar",
+      "Bathinda",
+      "Fazilka",
+      "Ferozepur",
+      "Gurdaspur",
+      "Hoshiarpur",
+      "Jalandhar",
+      "Ludhiana",
+      "Moga",
+      "Patiala",
+      "Ropar",
+      "Sangrur"
+    ],
+    "top_crops": {
+      "Rice": 67,
+      "Potato": 47,
+      "Maize": 47,
+      "Mustard": 42,
+      "MungBean": 35,
+      "Sugarcane": 35,
+      "Cotton": 26,
+      "Wheat": 22
+    },
+    "avg_yield": {
+      "Cotton": 480.1,
+      "Maize": 3531.1,
+      "MungBean": 916.9,
+      "Mustard": 1628.0,
+      "Potato": 19781.5,
+      "Rice": 3382.9,
+      "Sugarcane": 68232.6,
+      "Wheat": 3588.1
+    },
+    "avg_price": {
+      "Cotton": 6236.0,
+      "Maize": 1821.0,
+      "MungBean": 7846.0,
+      "Mustard": 5586.0,
+      "Potato": 989.0,
+      "Rice": 1831.0,
+      "Sugarcane": 298.0,
+      "Wheat": 1947.0
+    },
+    "seasons": [
+      "Rabi",
+      "Annual",
+      "Kharif",
+      "Zaid"
+    ]
+  },
+  "Rajasthan": {
+    "state": "Rajasthan",
+    "records": 417,
+    "district_count": 15,
+    "districts": [
+      "Ajmer",
+      "Alwar",
+      "Barmer",
+      "Bharatpur",
+      "Bikaner",
+      "Chittorgarh",
+      "Jaipur",
+      "Jaisalmer",
+      "Jodhpur",
+      "Kota",
+      "Nagaur",
+      "Pali",
+      "Sikar",
+      "Tonk",
+      "Udaipur"
+    ],
+    "top_crops": {
+      "Groundnut": 85,
+      "Cotton": 64,
+      "MungBean": 63,
+      "Wheat": 56,
+      "MothBeans": 46,
+      "Onion": 38,
+      "Mustard": 37,
+      "Soybean": 28
+    },
+    "avg_yield": {
+      "Cotton": 546.3,
+      "Groundnut": 1975.9,
+      "MothBeans": 812.5,
+      "MungBean": 1050.0,
+      "Mustard": 1600.3,
+      "Onion": 15487.1,
+      "Soybean": 1488.6,
+      "Wheat": 3495.9
+    },
+    "avg_price": {
+      "Cotton": 6119.0,
+      "Groundnut": 5738.0,
+      "MothBeans": 3966.0,
+      "MungBean": 7805.0,
+      "Mustard": 5584.0,
+      "Onion": 2027.0,
+      "Soybean": 3862.0,
+      "Wheat": 1967.0
+    },
+    "seasons": [
+      "Zaid",
+      "Kharif",
+      "Rabi"
+    ]
+  },
+  "Sikkim": {
+    "state": "Sikkim",
+    "records": 109,
+    "district_count": 4,
+    "districts": [
+      "East Sikkim",
+      "North Sikkim",
+      "South Sikkim",
+      "West Sikkim"
+    ],
+    "top_crops": {
+      "Rice": 38,
+      "Ginger": 26,
+      "Potato": 19,
+      "Maize": 18,
+      "Apple": 8
+    },
+    "avg_yield": {
+      "Apple": 12910.3,
+      "Ginger": 4073.8,
+      "Maize": 3585.6,
+      "Potato": 18449.2,
+      "Rice": 3065.0
+    },
+    "avg_price": {
+      "Apple": 5111.0,
+      "Ginger": 5471.0,
+      "Maize": 1786.0,
+      "Potato": 995.0,
+      "Rice": 1851.0
+    },
+    "seasons": [
+      "Kharif",
+      "Rabi"
+    ]
+  },
+  "Tamil Nadu": {
+    "state": "Tamil Nadu",
+    "records": 404,
+    "district_count": 15,
+    "districts": [
+      "Chennai",
+      "Coimbatore",
+      "Cuddalore",
+      "Dindigul",
+      "Erode",
+      "Krishnagiri",
+      "Madurai",
+      "Nagapattinam",
+      "Ramanathapuram",
+      "Salem",
+      "Thanjavur",
+      "Tirunelveli",
+      "Tiruppur",
+      "Trichy",
+      "Vellore"
+    ],
+    "top_crops": {
+      "Rice": 70,
+      "Banana": 54,
+      "Turmeric": 53,
+      "Coconut": 38,
+      "Cotton": 37,
+      "Mango": 36,
+      "Maize": 35,
+      "Tomato": 27
+    },
+    "avg_yield": {
+      "Banana": 24302.9,
+      "Coconut": 6868.6,
+      "Cotton": 436.6,
+      "Groundnut": 2116.6,
+      "Maize": 3296.4,
+      "Mango": 7213.8,
+      "Onion": 15477.9,
+      "Rice": 3323.4,
+      "Sugarcane": 73381.9,
+      "Tomato": 19749.5,
+      "Turmeric": 4122.5
+    },
+    "avg_price": {
+      "Banana": 1170.0,
+      "Coconut": 1528.0,
+      "Cotton": 6204.0,
+      "Groundnut": 5729.0,
+      "Maize": 1878.0,
+      "Mango": 2960.0,
+      "Onion": 1948.0,
+      "Rice": 1830.0,
+      "Sugarcane": 310.0,
+      "Tomato": 2602.0,
+      "Turmeric": 6895.0
+    },
+    "seasons": [
+      "Annual",
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "Telangana": {
+    "state": "Telangana",
+    "records": 257,
+    "district_count": 10,
+    "districts": [
+      "Adilabad",
+      "Hyderabad",
+      "Karimnagar",
+      "Khammam",
+      "Mahabubnagar",
+      "Medak",
+      "Nalgonda",
+      "Nizamabad",
+      "Rangareddy",
+      "Warangal"
+    ],
+    "top_crops": {
+      "Maize": 40,
+      "Banana": 39,
+      "Cotton": 39,
+      "Mango": 35,
+      "Tomato": 32,
+      "Sunflower": 19,
+      "Rice": 18,
+      "Soybean": 18
+    },
+    "avg_yield": {
+      "Banana": 25593.6,
+      "Cotton": 460.2,
+      "Groundnut": 2073.1,
+      "Maize": 3087.2,
+      "Mango": 7484.0,
+      "Rice": 3556.2,
+      "Soybean": 1444.9,
+      "Sunflower": 1336.0,
+      "Tomato": 19305.2
+    },
+    "avg_price": {
+      "Banana": 1194.0,
+      "Cotton": 6161.0,
+      "Groundnut": 5959.0,
+      "Maize": 1857.0,
+      "Mango": 3027.0,
+      "Rice": 1869.0,
+      "Soybean": 3995.0,
+      "Sunflower": 5588.0,
+      "Tomato": 2410.0
+    },
+    "seasons": [
+      "Annual",
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "Tripura": {
+    "state": "Tripura",
+    "records": 107,
+    "district_count": 4,
+    "districts": [
+      "East Tripura",
+      "North Tripura",
+      "South Tripura",
+      "West Tripura"
+    ],
+    "top_crops": {
+      "Turmeric": 37,
+      "Sugarcane": 19,
+      "Ginger": 16,
+      "Jute": 16,
+      "Rice": 10,
+      "Banana": 9
+    },
+    "avg_yield": {
+      "Banana": 25693.6,
+      "Ginger": 3683.5,
+      "Jute": 2614.8,
+      "Rice": 3821.9,
+      "Sugarcane": 73205.2,
+      "Turmeric": 4077.0
+    },
+    "avg_price": {
+      "Banana": 1243.0,
+      "Ginger": 5560.0,
+      "Jute": 4384.0,
+      "Rice": 1940.0,
+      "Sugarcane": 270.0,
+      "Turmeric": 6988.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual"
+    ]
+  },
+  "Uttar Pradesh": {
+    "state": "Uttar Pradesh",
+    "records": 528,
+    "district_count": 20,
+    "districts": [
+      "Agra",
+      "Aligarh",
+      "Azamgarh",
+      "Bareilly",
+      "Bulandshahr",
+      "Fatehpur",
+      "Firozabad",
+      "Ghaziabad",
+      "Gorakhpur",
+      "Jhansi",
+      "Kanpur",
+      "Lucknow",
+      "Mathura",
+      "Meerut",
+      "Moradabad",
+      "Muzaffarnagar",
+      "Prayagraj",
+      "Rae Bareli",
+      "Saharanpur",
+      "Varanasi"
+    ],
+    "top_crops": {
+      "Potato": 62,
+      "Onion": 60,
+      "Rice": 57,
+      "Wheat": 53,
+      "MungBean": 51,
+      "Sugarcane": 51,
+      "Mango": 39,
+      "PigeonPeas": 35
+    },
+    "avg_yield": {
+      "Banana": 26355.5,
+      "Lentil": 1026.2,
+      "Maize": 3244.0,
+      "Mango": 7098.9,
+      "MungBean": 836.3,
+      "Mustard": 1688.1,
+      "Onion": 14208.8,
+      "PigeonPeas": 1128.8,
+      "Potato": 19427.8,
+      "Rice": 3390.2,
+      "Sugarcane": 69055.2,
+      "Wheat": 3776.8
+    },
+    "avg_price": {
+      "Banana": 1207.0,
+      "Lentil": 5362.0,
+      "Maize": 1842.0,
+      "Mango": 3004.0,
+      "MungBean": 7904.0,
+      "Mustard": 5435.0,
+      "Onion": 1982.0,
+      "PigeonPeas": 6344.0,
+      "Potato": 967.0,
+      "Rice": 1903.0,
+      "Sugarcane": 293.0,
+      "Wheat": 1942.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif",
+      "Annual",
+      "Zaid"
+    ]
+  },
+  "Uttarakhand": {
+    "state": "Uttarakhand",
+    "records": 223,
+    "district_count": 8,
+    "districts": [
+      "Almora",
+      "Dehradun",
+      "Haridwar",
+      "Nainital",
+      "Pauri Garhwal",
+      "Pithoragarh",
+      "Tehri Garhwal",
+      "Udham Singh Nagar"
+    ],
+    "top_crops": {
+      "Tomato": 38,
+      "Maize": 29,
+      "Lentil": 28,
+      "Ginger": 28,
+      "Mustard": 27,
+      "Wheat": 27,
+      "Potato": 19,
+      "Rice": 18
+    },
+    "avg_yield": {
+      "Apple": 12217.7,
+      "Ginger": 3863.5,
+      "Lentil": 877.4,
+      "Maize": 3120.4,
+      "Mustard": 1706.9,
+      "Potato": 19803.7,
+      "Rice": 3538.7,
+      "Tomato": 18059.2,
+      "Wheat": 3934.9
+    },
+    "avg_price": {
+      "Apple": 5282.0,
+      "Ginger": 5351.0,
+      "Lentil": 5330.0,
+      "Maize": 1856.0,
+      "Mustard": 5574.0,
+      "Potato": 1031.0,
+      "Rice": 1903.0,
+      "Tomato": 2496.0,
+      "Wheat": 2014.0
+    },
+    "seasons": [
+      "Rabi",
+      "Kharif"
+    ]
+  },
+  "West Bengal": {
+    "state": "West Bengal",
+    "records": 380,
+    "district_count": 14,
+    "districts": [
+      "Bankura",
+      "Bardhaman",
+      "Birbhum",
+      "Cooch Behar",
+      "Darjeeling",
+      "Howrah",
+      "Jalpaiguri",
+      "Kolkata",
+      "Malda",
+      "Midnapore",
+      "Murshidabad",
+      "Nadia",
+      "North 24 Parganas",
+      "South 24 Parganas"
+    ],
+    "top_crops": {
+      "Potato": 68,
+      "Sugarcane": 62,
+      "Mustard": 53,
+      "Mango": 37,
+      "Banana": 36,
+      "Jute": 27,
+      "Rice": 26,
+      "Tomato": 26
+    },
+    "avg_yield": {
+      "Banana": 25382.1,
+      "Jute": 2855.3,
+      "Mango": 7496.6,
+      "Mustard": 1599.4,
+      "Onion": 14840.4,
+      "Potato": 20592.7,
+      "Rice": 3414.1,
+      "Sugarcane": 69409.0,
+      "Tomato": 20365.4,
+      "Wheat": 3871.1
+    },
+    "avg_price": {
+      "Banana": 1155.0,
+      "Jute": 4517.0,
+      "Mango": 3008.0,
+      "Mustard": 5557.0,
+      "Onion": 1951.0,
+      "Potato": 1013.0,
+      "Rice": 1858.0,
+      "Sugarcane": 273.0,
+      "Tomato": 2503.0,
+      "Wheat": 1917.0
+    },
+    "seasons": [
+      "Kharif",
+      "Annual",
+      "Rabi"
+    ]
+  }
+}
