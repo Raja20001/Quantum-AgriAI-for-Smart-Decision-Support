@@ -1,0 +1,8 @@
+# Ignore heavy local ML files and Python requirements during Vercel deployment
+requirements.txt
+Pipfile
+Pipfile.lock
+main_pipeline.py
+tests/
+logs/
+datasets/*.csv
